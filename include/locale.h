@@ -1,11 +1,9 @@
+#pragma once
 /* Localization <locale.h>
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
-
-#ifndef _PDCLIB_LOCALE_H
-#define _PDCLIB_LOCALE_H _PDCLIB_LOCALE_H
 
 #include "pdclib/_PDCLIB_int.h"
 
@@ -95,5 +93,3 @@ char * setlocale( int category, const char * locale );
    locale setting.
 */
 struct lconv * localeconv( void );
-
-#endif

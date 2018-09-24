@@ -1,11 +1,9 @@
+#pragma once
 /* OS glue functions declaration <_PDCLIB_glue.h>
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
-
-#ifndef _PDCLIB_GLUE_H
-#define _PDCLIB_GLUE_H _PDCLIB_GLUE_H
 
 #include "pdclib/_PDCLIB_int.h"
 
@@ -67,5 +65,3 @@ int _PDCLIB_close( _PDCLIB_fd_t fd );
    done by standard rename() already.
 */
 int _PDCLIB_rename( const char * old, const char * new );
-
-#endif

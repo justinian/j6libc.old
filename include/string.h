@@ -1,11 +1,9 @@
+#pragma once
 /* String handling <string.h>
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
-
-#ifndef _PDCLIB_STRING_H
-#define _PDCLIB_STRING_H _PDCLIB_STRING_H
 
 #include "pdclib/_PDCLIB_int.h"
 
@@ -181,5 +179,3 @@ char * strerror( int errnum );
 /* Returns the length of the string s (excluding terminating '\0').
 */
 size_t strlen( const char * s );
-
-#endif

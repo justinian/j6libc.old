@@ -1,11 +1,9 @@
+#pragma once
 /* Character handling <ctype.h>
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
-
-#ifndef _PDCLIB_CTYPE_H
-#define _PDCLIB_CTYPE_H _PDCLIB_CTYPE_H
 
 #include "pdclib/_PDCLIB_int.h"
 
@@ -91,5 +89,3 @@ int tolower( int c );
    is not a lowercase letter remains unchanged.
 */
 int toupper( int c );
-
-#endif

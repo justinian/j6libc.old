@@ -1,11 +1,9 @@
+#pragma once
 /* Common definitions <stddef.h>
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
-
-#ifndef _PDCLIB_STDDEF_H
-#define _PDCLIB_STDDEF_H _PDCLIB_STDDEF_H
 
 #include "pdclib/_PDCLIB_int.h"
 
@@ -24,5 +22,3 @@ typedef _PDCLIB_wchar_t   wchar_t;
 #endif
 
 #define offsetof( type, member ) _PDCLIB_offsetof( type, member )
-
-#endif

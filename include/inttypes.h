@@ -1,11 +1,9 @@
+#pragma once
 /* Format conversion of integer types <inttypes.h>
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
-
-#ifndef _PDCLIB_INTTYPES_H
-#define _PDCLIB_INTTYPES_H _PDCLIB_INTTYPES_H
 
 #include <stdint.h>
 
@@ -245,5 +243,3 @@ intmax_t strtoimax( const char * _PDCLIB_restrict nptr, char * * _PDCLIB_restric
 uintmax_t strtoumax( const char * _PDCLIB_restrict nptr, char * * _PDCLIB_restrict endptr, int base );
 
 /* TODO: wcstoimax(), wcstoumax() */
-
-#endif

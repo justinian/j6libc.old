@@ -1,11 +1,9 @@
+#pragma once
 /* Wide character classification and mapping utilities <wctype.h>
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
-
-#ifndef _PDCLIB_WCTYPE_H
-#define _PDCLIB_WCTYPE_H _PDCLIB_WCTYPE_H
 
 #include "pdclib/_PDCLIB_int.h"
 
@@ -134,5 +132,3 @@ wint_t towctrans( wint_t wc, wctrans_t desc );
    For unsupported properties, the function returns zero.
 */
 wctrans_t wctrans( const char * property );
-
-#endif

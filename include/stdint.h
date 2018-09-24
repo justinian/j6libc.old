@@ -1,11 +1,9 @@
+#pragma once
 /* Integer types <stdint.h>
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
-
-#ifndef _PDCLIB_STDINT_H
-#define _PDCLIB_STDINT_H _PDCLIB_STDINT_H
 
 #include "pdclib/_PDCLIB_int.h"
 
@@ -201,7 +199,5 @@ typedef _PDCLIB_uintmax_t uintmax_t;
 
 /* Expand to an integer constant of specified value and type uintmax_t */
 #define UINTMAX_C( value ) _PDCLIB_UINTMAX_C( value )
-
-#endif
 
 #endif

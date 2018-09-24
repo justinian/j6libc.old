@@ -1,11 +1,9 @@
+#pragma once
 /* Sizes of integer types <limits.h>
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
-
-#ifndef _PDCLIB_LIMITS_H
-#define _PDCLIB_LIMITS_H _PDCLIB_LIMITS_H
 
 #include "pdclib/_PDCLIB_int.h"
 
@@ -31,5 +29,3 @@
 #define USHRT_MAX  _PDCLIB_USHRT_MAX
 #define UINT_MAX   _PDCLIB_UINT_MAX
 #define ULONG_MAX  _PDCLIB_ULONG_MAX
-
-#endif

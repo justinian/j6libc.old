@@ -1,11 +1,9 @@
+#pragma once
 /* Input/output <stdio.h>
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
-
-#ifndef _PDCLIB_STDIO_H
-#define _PDCLIB_STDIO_H _PDCLIB_STDIO_H
 
 #include "pdclib/_PDCLIB_int.h"
 
@@ -782,5 +780,3 @@ int ferror( FILE * stream );
    strerror( errno ) had been called).
 */
 void perror( const char * s );
-
-#endif

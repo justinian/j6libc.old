@@ -1,3 +1,4 @@
+#pragma once
 /* Diagnostics <assert.h>
 
    This file is part of the Public Domain C Library (PDCLib).
@@ -6,8 +7,6 @@
 
 #include "pdclib/_PDCLIB_aux.h"
 
-#ifndef _PDCLIB_ASSERT_H
-#define _PDCLIB_ASSERT_H _PDCLIB_ASSERT_H
 void _PDCLIB_assert( const char * const, const char * const, const char * const );
 
 /* If NDEBUG is set, assert() is a null operation. */

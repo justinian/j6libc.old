@@ -1,11 +1,9 @@
+#pragma once
 /* Date and time <time.h>
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
-
-#ifndef _PDCLIB_TIME_H
-#define _PDCLIB_TIME_H _PDCLIB_TIMEH
 
 #include "pdclib/_PDCLIB_int.h"
 
@@ -108,5 +106,3 @@ struct tm * localtime( const time_t * timer );
    null character), or zero on failure.
 */
 size_t strftime( char * _PDCLIB_restrict s, size_t maxsize, const char * _PDCLIB_restrict format, const struct tm * _PDCLIB_restrict timeptr );
-
-#endif
