@@ -1630,7 +1630,7 @@ static int test_week_calc( void )
     int i;
     for ( i = 0; i < 1020; ++i )
     {
-        struct tm t = { 0 };
+        struct tm t;
         int U, V, W;
         t.tm_year = data[i][0];
         t.tm_wday = data[i][1];
