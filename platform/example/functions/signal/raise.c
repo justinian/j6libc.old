@@ -20,7 +20,7 @@ extern void (*_PDCLIB_sigterm)( int );
 
 int raise( int sig )
 {
-    void (*sighandler)( int );
+    void (*sighandler)( int ) = NULL;
     const char * message;
     switch ( sig )
     {
