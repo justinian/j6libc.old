@@ -21,7 +21,7 @@ void * realloc( void * ptr, size_t size )
     }
     if ( size > 0 )
     {
-        struct _PDCLIB_memnode_t * baseptr = (struct _PDCLIB_memnode_t *)( (char *)ptr - sizeof( struct _PDCLIB_memnode_t ) );
+        struct _PDCLIB_memnode_t * baseptr = (struct _PDCLIB_memnode_t *)ptr - 1;
         if ( baseptr->size >= size )
         {
             /* Current memnode is large enough; nothing to do. */
