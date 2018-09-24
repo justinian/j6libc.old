@@ -1,8 +1,10 @@
+PLATFORM ?= example
+
 # This is a list of all non-source files that are part of the distribution.
 AUXFILES := Makefile Readme.txt
 
 # Directories belonging to the project
-PROJDIRS := functions include platform/example
+PROJDIRS := functions include platform/${PLATFORM}
 # Directory where binaries should be written
 BUILDDIR := .
 # All source files of the project
@@ -24,8 +26,8 @@ REGDEPFILES := $(patsubst %,$(BUILDDIR)/%.d,$(REGFILES))
 # All files belonging to the source distribution
 ALLFILES := $(SRCFILES) $(HDRFILES) $(AUXFILES)
 
-WARNINGS := -Wall -Wextra -pedantic -Wno-unused-parameter -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Winline -Wno-long-long -Wuninitialized -Wstrict-prototypes -Wdeclaration-after-statement
-CFLAGS := -fno-builtin -g -std=c99 -I./testing -I./platform/example/include $(WARNINGS) $(USERFLAGS)
+WARNINGS := -Werror -Wall -Wextra -pedantic -Wno-unused-parameter -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Winline -Wno-long-long -Wuninitialized -Wstrict-prototypes -Wdeclaration-after-statement -Wno-unused-function
+CFLAGS := -fno-builtin -g -std=c99 -I./testing -I./platform/${PLATFORM}/include $(WARNINGS) $(USERFLAGS)
 
 .PHONY: all clean srcdist tests testdrivers regtests regtestdrivers todos fixmes help
 
