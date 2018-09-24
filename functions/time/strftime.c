@@ -148,7 +148,7 @@ static int week_calc( const struct tm * timeptr, int wtype )
         } \
     }
 
-size_t strftime( char * _PDCLIB_restrict s, size_t maxsize, const char * _PDCLIB_restrict format, const struct tm * _PDCLIB_restrict timeptr )
+size_t strftime( char * restrict s, size_t maxsize, const char * restrict format, const struct tm * restrict timeptr )
 {
     size_t rc = 0;
 

@@ -10,7 +10,7 @@
 
 #include "pdclib/_PDCLIB_glue.h"
 
-int fputs( const char * _PDCLIB_restrict s, struct _PDCLIB_file_t * _PDCLIB_restrict stream )
+int fputs( const char * restrict s, struct _PDCLIB_file_t * restrict stream )
 {
     if ( _PDCLIB_prepwrite( stream ) == EOF )
     {

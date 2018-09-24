@@ -8,7 +8,7 @@
 
 #ifndef REGTEST
 
-char * strcat( char * _PDCLIB_restrict s1, const char * _PDCLIB_restrict s2 )
+char * strcat( char * restrict s1, const char * restrict s2 )
 {
     char * rc = s1;
     if ( *s1 )

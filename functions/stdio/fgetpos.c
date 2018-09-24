@@ -8,7 +8,7 @@
 
 #ifndef REGTEST
 
-int fgetpos( struct _PDCLIB_file_t * _PDCLIB_restrict stream, struct _PDCLIB_fpos_t * _PDCLIB_restrict pos )
+int fgetpos( struct _PDCLIB_file_t * restrict stream, struct _PDCLIB_fpos_t * restrict pos )
 {
     pos->offset = stream->pos.offset + stream->bufidx - stream->ungetidx;
     pos->status = stream->pos.status;

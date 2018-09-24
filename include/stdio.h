@@ -149,7 +149,7 @@ int fflush( FILE * stream );
 
    Returns a pointer to the stream handle if successfull, NULL otherwise.
 */
-FILE * fopen( const char * _PDCLIB_restrict filename, const char * _PDCLIB_restrict mode );
+FILE * fopen( const char * restrict filename, const char * restrict mode );
 
 /* Close any file currently associated with the given stream. Open the file
    identified by the given filename with the given mode (equivalent to fopen()),
@@ -160,12 +160,12 @@ FILE * fopen( const char * _PDCLIB_restrict filename, const char * _PDCLIB_restr
    standard streams.
    (Primary use of this function is to redirect stdin, stdout, and stderr.)
 */
-FILE * freopen( const char * _PDCLIB_restrict filename, const char * _PDCLIB_restrict mode, FILE * _PDCLIB_restrict stream );
+FILE * freopen( const char * restrict filename, const char * restrict mode, FILE * restrict stream );
 
 /* If buf is a NULL pointer, call setvbuf( stream, NULL, _IONBF, BUFSIZ ).
    If buf is not a NULL pointer, call setvbuf( stream, buf, _IOFBF, BUFSIZ ).
 */
-void setbuf( FILE * _PDCLIB_restrict stream, char * _PDCLIB_restrict buf );
+void setbuf( FILE * restrict stream, char * restrict buf );
 
 /* Set the given stream to the given buffering mode. If buf is not a NULL
    pointer, use buf as file buffer (of given size). If buf is a NULL pointer,
@@ -176,7 +176,7 @@ void setbuf( FILE * _PDCLIB_restrict stream, char * _PDCLIB_restrict buf );
    setvbuf()) has been performed.
    Returns zero if successful, nonzero otherwise.
 */
-int setvbuf( FILE * _PDCLIB_restrict stream, char * _PDCLIB_restrict buf, int mode, size_t size );
+int setvbuf( FILE * restrict stream, char * restrict buf, int mode, size_t size );
 
 /* Formatted input/output functions */
 
@@ -391,7 +391,7 @@ int setvbuf( FILE * _PDCLIB_restrict stream, char * _PDCLIB_restrict buf, int mo
    Returns the number of characters written if successful, a negative value
    otherwise.
 */
-int fprintf( FILE * _PDCLIB_restrict stream, const char * _PDCLIB_restrict format, ... );
+int fprintf( FILE * restrict stream, const char * restrict format, ... );
 
 /* TODO: fscanf() documentation */
 /*
@@ -544,13 +544,13 @@ int fprintf( FILE * _PDCLIB_restrict stream, const char * _PDCLIB_restrict forma
    an early mismatch occurs. Returns EOF if an input failure occurs before the
    first conversion.
 */
-int fscanf( FILE * _PDCLIB_restrict stream, const char * _PDCLIB_restrict format, ... );
+int fscanf( FILE * restrict stream, const char * restrict format, ... );
 
 /* Equivalent to fprintf( stdout, format, ... ). */
-int printf( const char * _PDCLIB_restrict format, ... );
+int printf( const char * restrict format, ... );
 
 /* Equivalent to fscanf( stdin, format, ... ). */
-int scanf( const char * _PDCLIB_restrict format, ... );
+int scanf( const char * restrict format, ... );
 
 /* Equivalent to fprintf( stdout, format, ... ), except that the result is
    written into the buffer pointed to by s, instead of stdout, and that any
@@ -560,61 +560,61 @@ int scanf( const char * _PDCLIB_restrict format, ... );
    the terminating '\0' character) if n had been sufficiently large, if
    successful, and a negative number if an encoding error ocurred.
 */
-int snprintf( char * _PDCLIB_restrict s, size_t n, const char * _PDCLIB_restrict format, ... );
+int snprintf( char * restrict s, size_t n, const char * restrict format, ... );
 
 /* Equivalent to fprintf( stdout, format, ... ), except that the result is
    written into the buffer pointed to by s, instead of stdout.
 */
-int sprintf( char * _PDCLIB_restrict s, const char * _PDCLIB_restrict format, ... );
+int sprintf( char * restrict s, const char * restrict format, ... );
 
 /* Equivalent to fscanf( stdin, format, ... ), except that the input is read
    from the buffer pointed to by s, instead of stdin.
 */
-int sscanf( const char * _PDCLIB_restrict s, const char * _PDCLIB_restrict format, ... );
+int sscanf( const char * restrict s, const char * restrict format, ... );
 
 /* Equivalent to fprintf( stream, format, ... ), except that the argument stack
    is passed as va_list parameter. Note that va_list is not declared by
    <stdio.h>.
 */
-int vfprintf( FILE * _PDCLIB_restrict stream, const char * _PDCLIB_restrict format, _PDCLIB_va_list arg );
+int vfprintf( FILE * restrict stream, const char * restrict format, _PDCLIB_va_list arg );
 
 /* Equivalent to fscanf( stream, format, ... ), except that the argument stack
    is passed as va_list parameter. Note that va_list is not declared by
    <stdio.h>.
 */
-int vfscanf( FILE * _PDCLIB_restrict stream, const char * _PDCLIB_restrict format, _PDCLIB_va_list arg );
+int vfscanf( FILE * restrict stream, const char * restrict format, _PDCLIB_va_list arg );
 
 /* Equivalent to fprintf( stdout, format, ... ), except that the argument stack
    is passed as va_list parameter. Note that va_list is not declared by
    <stdio.h>.
 */
-int vprintf( const char * _PDCLIB_restrict format, _PDCLIB_va_list arg );
+int vprintf( const char * restrict format, _PDCLIB_va_list arg );
 
 /* Equivalent to fscanf( stdin, format, ... ), except that the argument stack
    is passed as va_list parameter. Note that va_list is not declared by
    <stdio.h>.
 */
-int vscanf( const char * _PDCLIB_restrict format, _PDCLIB_va_list arg );
+int vscanf( const char * restrict format, _PDCLIB_va_list arg );
 
 /* Equivalent to snprintf( s, n, format, ... ), except that the argument stack
    is passed as va_list parameter. Note that va_list is not declared by
    <stdio.h>.
    */
-int vsnprintf( char * _PDCLIB_restrict s, size_t n, const char * _PDCLIB_restrict format, _PDCLIB_va_list arg );
+int vsnprintf( char * restrict s, size_t n, const char * restrict format, _PDCLIB_va_list arg );
 
 /* Equivalent to fprintf( stdout, format, ... ), except that the argument stack
    is passed as va_list parameter, and the result is written to the buffer
    pointed to by s, instead of stdout. Note that va_list is not declared by
    <stdio.h>.
 */
-int vsprintf( char * _PDCLIB_restrict s, const char * _PDCLIB_restrict format, _PDCLIB_va_list arg );
+int vsprintf( char * restrict s, const char * restrict format, _PDCLIB_va_list arg );
 
 /* Equivalent to fscanf( stdin, format, ... ), except that the argument stack
    is passed as va_list parameter, and the input is read from the buffer
    pointed to by s, instead of stdin. Note that va_list is not declared by
    <stdio.h>.
 */
-int vsscanf( const char * _PDCLIB_restrict s, const char * _PDCLIB_restrict format, _PDCLIB_va_list arg );
+int vsscanf( const char * restrict s, const char * restrict format, _PDCLIB_va_list arg );
 
 /* Character input/output functions */
 
@@ -632,7 +632,7 @@ int fgetc( FILE * stream );
    If a read error occurs, the error indicator of the stream is set. In this
    case, the contents of s are indeterminate.
 */
-char * fgets( char * _PDCLIB_restrict s, int n, FILE * _PDCLIB_restrict stream );
+char * fgets( char * restrict s, int n, FILE * restrict stream );
 
 /* Write the value c (cast to unsigned char) to the given stream.
    Returns c if successful, EOF otherwise.
@@ -645,7 +645,7 @@ int fputc( int c, FILE * stream );
    This implementation does set the error indicator of the stream if a write
    error occurs.
 */
-int fputs( const char * _PDCLIB_restrict s, FILE * _PDCLIB_restrict stream );
+int fputs( const char * restrict s, FILE * restrict stream );
 
 /* Equivalent to fgetc( stream ), but may be overloaded by a macro that
    evaluates its parameter more than once.
@@ -696,7 +696,7 @@ int ungetc( int c, FILE * stream );
    indeterminate. If a partial element is read, its value is indeterminate.
    If size or nmemb are zero, the function does nothing and returns zero.
 */
-size_t fread( void * _PDCLIB_restrict ptr, size_t size, size_t nmemb, FILE * _PDCLIB_restrict stream );
+size_t fread( void * restrict ptr, size_t size, size_t nmemb, FILE * restrict stream );
 
 /* Write up to nmemb elements of given size from buffer pointed to by ptr to
    the given stream. Returns the number of elements successfully written, which
@@ -705,7 +705,7 @@ size_t fread( void * _PDCLIB_restrict ptr, size_t size, size_t nmemb, FILE * _PD
    indeterminate. If size or nmemb are zero, the function does nothing and
    returns zero.
 */
-size_t fwrite( const void * _PDCLIB_restrict ptr, size_t size, size_t nmemb, FILE * _PDCLIB_restrict stream );
+size_t fwrite( const void * restrict ptr, size_t size, size_t nmemb, FILE * restrict stream );
 
 /* File positioning functions */
 
@@ -717,7 +717,7 @@ size_t fwrite( const void * _PDCLIB_restrict ptr, size_t size, size_t nmemb, FIL
    Returns zero if successful, nonzero otherwise.
    TODO: Implementation-defined errno setting for fgetpos().
 */
-int fgetpos( FILE * _PDCLIB_restrict stream, fpos_t * _PDCLIB_restrict pos );
+int fgetpos( FILE * restrict stream, fpos_t * restrict pos );
 
 /* Set the position indicator for the given stream to the given offset from:
    - the beginning of the file if whence is SEEK_SET,

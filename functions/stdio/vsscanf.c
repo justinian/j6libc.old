@@ -10,7 +10,7 @@
 
 #ifndef REGTEST
 
-int vsscanf( const char * _PDCLIB_restrict s, const char * _PDCLIB_restrict format, va_list arg )
+int vsscanf( const char * restrict s, const char * restrict format, va_list arg )
 {
     /* TODO: This function should interpret format as multibyte characters.  */
     struct _PDCLIB_status_t status;

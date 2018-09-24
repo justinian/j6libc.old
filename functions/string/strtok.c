@@ -8,7 +8,7 @@
 
 #ifndef REGTEST
 
-char * strtok( char * _PDCLIB_restrict s1, const char * _PDCLIB_restrict s2 )
+char * strtok( char * restrict s1, const char * restrict s2 )
 {
     static char * tmp = NULL;
     const char * p = s2;

@@ -15,7 +15,7 @@
 
 extern struct _PDCLIB_file_t * _PDCLIB_filelist;
 
-struct _PDCLIB_file_t * fopen( const char * _PDCLIB_restrict filename, const char * _PDCLIB_restrict mode )
+struct _PDCLIB_file_t * fopen( const char * restrict filename, const char * restrict mode )
 {
     struct _PDCLIB_file_t * rc;
     size_t filename_len;

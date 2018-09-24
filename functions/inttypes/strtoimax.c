@@ -11,7 +11,7 @@
 
 #include <stddef.h>
 
-intmax_t strtoimax( const char * _PDCLIB_restrict nptr, char ** _PDCLIB_restrict endptr, int base )
+intmax_t strtoimax( const char * restrict nptr, char ** restrict endptr, int base )
 {
     intmax_t rc;
     char sign = '+';

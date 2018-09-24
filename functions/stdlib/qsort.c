@@ -17,7 +17,7 @@
 */
 
 /* Wrapper for _PDCLIB_memswp protects against multiple argument evaluation. */
-static _PDCLIB_inline void memswp( char * i, char * j, size_t size )
+static inline void memswp( char * i, char * j, size_t size )
 {
     _PDCLIB_memswp( i, j, size );
 }

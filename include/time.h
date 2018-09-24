@@ -105,4 +105,4 @@ struct tm * localtime( const time_t * timer );
    Returns the number of characters written (excluding the terminating
    null character), or zero on failure.
 */
-size_t strftime( char * _PDCLIB_restrict s, size_t maxsize, const char * _PDCLIB_restrict format, const struct tm * _PDCLIB_restrict timeptr );
+size_t strftime( char * restrict s, size_t maxsize, const char * restrict format, const struct tm * restrict timeptr );

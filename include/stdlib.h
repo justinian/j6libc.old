@@ -22,9 +22,9 @@ typedef _PDCLIB_size_t size_t;
 /* TODO: atof(), strtof(), strtod(), strtold() */
 
 double atof( const char * nptr );
-double strtod( const char * _PDCLIB_restrict nptr, char * * _PDCLIB_restrict endptr );
-float strtof( const char * _PDCLIB_restrict nptr, char * * _PDCLIB_restrict endptr );
-long double strtold( const char * _PDCLIB_restrict nptr, char * * _PDCLIB_restrict endptr );
+double strtod( const char * restrict nptr, char * * restrict endptr );
+float strtof( const char * restrict nptr, char * * restrict endptr );
+long double strtold( const char * restrict nptr, char * * restrict endptr );
 
 /* Seperate the character array nptr into three parts: A (possibly empty)
    sequence of whitespace characters, a character representation of an integer
@@ -48,10 +48,10 @@ long double strtold( const char * _PDCLIB_restrict nptr, char * * _PDCLIB_restri
 /* There is strtoimax() and strtoumax() in <inttypes.h> operating on intmax_t /
    uintmax_t, if the long long versions do not suit your needs.
 */
-long int strtol( const char * _PDCLIB_restrict nptr, char * * _PDCLIB_restrict endptr, int base );
-long long int strtoll( const char * _PDCLIB_restrict nptr, char * * _PDCLIB_restrict endptr, int base );
-unsigned long int strtoul( const char * _PDCLIB_restrict nptr, char * * _PDCLIB_restrict endptr, int base );
-unsigned long long int strtoull( const char * _PDCLIB_restrict nptr, char * * _PDCLIB_restrict endptr, int base );
+long int strtol( const char * restrict nptr, char * * restrict endptr, int base );
+long long int strtoll( const char * restrict nptr, char * * restrict endptr, int base );
+unsigned long int strtoul( const char * restrict nptr, char * * restrict endptr, int base );
+unsigned long long int strtoull( const char * restrict nptr, char * * restrict endptr, int base );
 
 /* These functions are the equivalent of (int)strtol( nptr, NULL, 10 ),
    strtol( nptr, NULL, 10 ) and strtoll(nptr, NULL, 10 ) respectively, with the
@@ -231,8 +231,8 @@ lldiv_t lldiv( long long int numer, long long int denom );
 
 /*
 int mblen( const char * s, size_t n );
-int mbtowc( wchar_t * _PDCLIB_restrict pwc, const char * _PDCLIB_restrict s, size_t n );
+int mbtowc( wchar_t * restrict pwc, const char * restrict s, size_t n );
 int wctomb( char * s, wchar_t wc );
-size_t mbstowcs( wchar_t * _PDCLIB_restrict pwcs, const char * _PDCLIB_restrict s, size_t n );
-size_t wcstombs( char * _PDCLIB_restrict s, const wchar_t * _PDCLIB_restrict pwcs, size_t n );
+size_t mbstowcs( wchar_t * restrict pwcs, const char * restrict s, size_t n );
+size_t wcstombs( char * restrict s, const wchar_t * restrict pwcs, size_t n );
 */

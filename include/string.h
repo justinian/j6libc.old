@@ -31,19 +31,19 @@ typedef _PDCLIB_size_t size_t;
    area pointed to by s1. If the two areas overlap, behaviour is undefined.
    Returns the value of s1.
 */
-void * memcpy( void * _PDCLIB_restrict s1, const void * _PDCLIB_restrict s2, size_t n );
+void * memcpy( void * restrict s1, const void * restrict s2, size_t n );
 
 /* Copy a number of n characters from the memory area pointed to by s2 to the
    area pointed to by s1. The two areas may overlap.
    Returns the value of s1.
 */
-void * memmove( void * _PDCLIB_restrict s1, const void * _PDCLIB_restrict s2, size_t n );
+void * memmove( void * restrict s1, const void * restrict s2, size_t n );
 
 /* Copy the character array s2 (including terminating '\0' byte) into the
    character array s1.
    Returns the value of s1.
 */
-char * strcpy( char * _PDCLIB_restrict s1, const char * _PDCLIB_restrict s2 );
+char * strcpy( char * restrict s1, const char * restrict s2 );
 
 /* Copy a maximum of n characters from the character array s2 into the character
    array s1. If s2 is shorter than n characters, '\0' bytes will be appended to
@@ -52,7 +52,7 @@ char * strcpy( char * _PDCLIB_restrict s1, const char * _PDCLIB_restrict s2 );
    behaviour is undefined.
    Returns the value of s1.
 */
-char * strncpy( char * _PDCLIB_restrict s1, const char * _PDCLIB_restrict s2, size_t n );
+char * strncpy( char * restrict s1, const char * restrict s2, size_t n );
 
 /* Concatenation functions */
 
@@ -61,7 +61,7 @@ char * strncpy( char * _PDCLIB_restrict s1, const char * _PDCLIB_restrict s2, si
    the arrays overlap, behaviour is undefined.
    Returns the value of s1.
 */
-char * strcat( char * _PDCLIB_restrict s1, const char * _PDCLIB_restrict s2 );
+char * strcat( char * restrict s1, const char * restrict s2 );
 
 /* Append a maximum of n characters from the character array s1 to the character
    array s1 (first character of s2 overwriting the '\0' of s1). A terminating
@@ -69,7 +69,7 @@ char * strcat( char * _PDCLIB_restrict s1, const char * _PDCLIB_restrict s2 );
    written. If the arrays overlap, behaviour is undefined.
    Returns the value of s1.
 */
-char * strncat( char * _PDCLIB_restrict s1, const char * _PDCLIB_restrict s2, size_t n );
+char * strncat( char * restrict s1, const char * restrict s2, size_t n );
 
 /* Comparison functions */
 
@@ -106,7 +106,7 @@ int strncmp( const char * s1, const char * s2, size_t n );
    the character array pointed to by s1. Return the length of the resulting
    string.
 */
-size_t strxfrm( char * _PDCLIB_restrict s1, const char * _PDCLIB_restrict s2, size_t n );
+size_t strxfrm( char * restrict s1, const char * restrict s2, size_t n );
 
 /* Search functions */
 
@@ -160,7 +160,7 @@ char * strstr( const char * s1, const char * s2 );
    Returns a pointer to the next token.
    WARNING: This function uses static storage, and as such is not reentrant.
 */
-char * strtok( char * _PDCLIB_restrict s1, const char * _PDCLIB_restrict s2 );
+char * strtok( char * restrict s1, const char * restrict s2 );
 
 /* Miscellaneous functions */
 

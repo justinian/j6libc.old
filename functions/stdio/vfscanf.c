@@ -10,7 +10,7 @@
 
 #ifndef REGTEST
 
-int vfscanf( FILE * _PDCLIB_restrict stream, const char * _PDCLIB_restrict format, va_list arg )
+int vfscanf( FILE * restrict stream, const char * restrict format, va_list arg )
 {
     /* TODO: This function should interpret format as multibyte characters.  */
     struct _PDCLIB_status_t status;

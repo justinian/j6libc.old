@@ -239,7 +239,7 @@ imaxdiv_t imaxdiv( intmax_t numer, intmax_t denom );
 /* This function is equivalent to strtol() / strtoul() in <stdlib.h>, but on
    the potentially larger type.
 */
-intmax_t strtoimax( const char * _PDCLIB_restrict nptr, char * * _PDCLIB_restrict endptr, int base );
-uintmax_t strtoumax( const char * _PDCLIB_restrict nptr, char * * _PDCLIB_restrict endptr, int base );
+intmax_t strtoimax( const char * restrict nptr, char * * restrict endptr, int base );
+uintmax_t strtoumax( const char * restrict nptr, char * * restrict endptr, int base );
 
 /* TODO: wcstoimax(), wcstoumax() */

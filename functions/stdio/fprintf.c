@@ -9,7 +9,7 @@
 
 #ifndef REGTEST
 
-int fprintf( struct _PDCLIB_file_t * _PDCLIB_restrict stream, const char * _PDCLIB_restrict format, ... )
+int fprintf( struct _PDCLIB_file_t * restrict stream, const char * restrict format, ... )
 {
     int rc;
     va_list ap;

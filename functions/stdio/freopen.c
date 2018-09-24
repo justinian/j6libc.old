@@ -12,7 +12,7 @@
 
 #include "pdclib/_PDCLIB_glue.h"
 
-struct _PDCLIB_file_t * freopen( const char * _PDCLIB_restrict filename, const char * _PDCLIB_restrict mode, struct _PDCLIB_file_t * _PDCLIB_restrict stream )
+struct _PDCLIB_file_t * freopen( const char * restrict filename, const char * restrict mode, struct _PDCLIB_file_t * restrict stream )
 {
     unsigned int status = stream->status & ( _IONBF | _IOLBF | _IOFBF | _PDCLIB_FREEBUFFER | _PDCLIB_DELONCLOSE );
     /* TODO: This function can change wide orientation of a stream */

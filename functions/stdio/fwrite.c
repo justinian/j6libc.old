@@ -11,7 +11,7 @@
 
 #include "pdclib/_PDCLIB_glue.h"
 
-size_t fwrite( const void * _PDCLIB_restrict ptr, size_t size, size_t nmemb, struct _PDCLIB_file_t * _PDCLIB_restrict stream )
+size_t fwrite( const void * restrict ptr, size_t size, size_t nmemb, struct _PDCLIB_file_t * restrict stream )
 {
     _PDCLIB_size_t offset = 0;
     /* TODO: lineend */

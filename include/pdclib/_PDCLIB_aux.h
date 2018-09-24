@@ -20,12 +20,8 @@
 #error Compiler does not define _ _STDC_ _ to 1 (not standard-compliant)!
 #endif
 
-#if __STDC_VERSION__ < 199901L
-#define _PDCLIB_restrict
-#define _PDCLIB_inline
-#else
-#define _PDCLIB_restrict restrict
-#define _PDCLIB_inline inline
+#ifdef __cplusplus
+#define restrict __restrict__
 #endif
 
 #ifndef __STDC_HOSTED__

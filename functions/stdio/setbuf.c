@@ -8,7 +8,7 @@
 
 #ifndef REGTEST
 
-void setbuf( struct _PDCLIB_file_t * _PDCLIB_restrict stream, char * _PDCLIB_restrict buf )
+void setbuf( struct _PDCLIB_file_t * restrict stream, char * restrict buf )
 {
     if ( buf == NULL )
     {

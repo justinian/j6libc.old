@@ -9,7 +9,7 @@
 
 #ifndef REGTEST
 
-int printf( const char * _PDCLIB_restrict format, ... )
+int printf( const char * restrict format, ... )
 {
     int rc;
     va_list ap;

@@ -9,7 +9,7 @@
 
 #ifndef REGTEST
 
-int fscanf( FILE * _PDCLIB_restrict stream, const char * _PDCLIB_restrict format, ... )
+int fscanf( FILE * restrict stream, const char * restrict format, ... )
 {
     int rc;
     va_list ap;

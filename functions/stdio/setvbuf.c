@@ -10,7 +10,7 @@
 
 #ifndef REGTEST
 
-int setvbuf( struct _PDCLIB_file_t * _PDCLIB_restrict stream, char * _PDCLIB_restrict buf, int mode, size_t size )
+int setvbuf( struct _PDCLIB_file_t * restrict stream, char * restrict buf, int mode, size_t size )
 {
     switch ( mode )
     {
