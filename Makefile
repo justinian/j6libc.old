@@ -1,6 +1,7 @@
 CC  := clang
 CXX := clang++
 LD  := ld.lld
+PREFIX ?= /tmp/poplibc/
 
 # This is a list of all non-source files that are part of the distribution.
 AUXFILES := Makefile Readme.txt
@@ -13,7 +14,8 @@ BUILDDIR ?= build
 # All source files of the project
 SRCS := $(shell find -L ${PROJDIRS} -type f -name "*.c")
 # All header files of the project
-HEADERS := $(shell find -L ${PROJDIRS} -type f -name "*.h")
+HEADERS := $(shell find -L include -type f -name "*.h")
+POPHEADERS := $(shell find -L popcorn/include -type f -name "*.h")
 
 OBJS := $(patsubst %.c,${BUILDDIR}/%.o,${SRCS})
 TSTSRCS := $(shell find -L tests -type f -name "*.c")
@@ -37,12 +39,12 @@ INCLUDES := -isystem ${PWD}/include -isystem ${PWD}/popcorn/include
 CFLAGS := -std=c11 ${INCLUDES} ${WARNINGS} ${DEFINES} ${USERFLAGS} -ggdb
 LIBCFLAGS := -ffreestanding -nostdinc -nostdlib -std=c11 ${CFLAGS} 
 
-.PHONY: all clean test todos fixmes help
+.PHONY: all clean test todos fixmes help install
 
 all: tags ${BUILDDIR}/libc.a test
 
 ${BUILDDIR}/libc.a: ${OBJS}
-	ar rc ${BUILDDIR}/libc.a $?
+	${AR} rc ${BUILDDIR}/libc.a $?
 
 tags: ${SRCS}
 	ctags -R functions include popcorn
@@ -72,16 +74,23 @@ help:
 	@echo "test             - build and run tests (link libc.a)"
 	@echo "todos            - list all TODO comments in the sources"
 	@echo "fixmes           - list all FIXME comments in the sources"
-	@echo "%.o              - build an individual object file"
-	@echo "%.t              - build an individual test driver"
-	@echo "%.r              - build an individual regression test driver"
+	@echo "install          - install the library to $$PREFIX"
 	@echo "help             - print this list"
 	@echo
 	@echo "Any additional compiler flags you want to use can be passed as USERFLAGS"
 	@echo "(Usage: USERFLAGS=\"flags\" make [...])."
 	@echo
-	@echo "If you want to build out-of-source, you can specify BUILDDIR"
+	@echo "Installation prefix is specified as PREFIX"
+	@echo "(Usage: make install PREFIX=/path/to/sysroot/)."
+	@echo
+	@echo "If you want to build to a different path, you can specify BUILDDIR"
 	@echo "(Usage: make [...] BUILDDIR=/path/to/binaries/)."
+
+install: ${BUILDDIR}/libc.a
+	install -d "${PREFIX}/include" "${PREFIX}/lib"
+	install -C "${BUILDDIR}/libc.a" "${PREFIX}/lib/"
+	for hdr in ${HEADERS}; do install -D $${hdr} "${PREFIX}/$${hdr}"; done
+	for hdr in $(patsubst popcorn/%,%,${POPHEADERS}); do install -D "popcorn/$${hdr}" "${PREFIX}/$${hdr}"; done
 
 ${BUILDDIR}/%.o: %.c Makefile 
 	@mkdir -p $(dir $@)
