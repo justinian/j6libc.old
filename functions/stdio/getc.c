@@ -6,23 +6,7 @@
 
 #include <stdio.h>
 
-#ifndef REGTEST
-
 int getc( struct _PDCLIB_file_t * stream )
 {
     return fgetc( stream );
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    /* Testing covered by ftell.c */
-    return TEST_RESULTS;
-}
-
-#endif

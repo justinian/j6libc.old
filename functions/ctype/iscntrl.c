@@ -5,29 +5,9 @@
 */
 
 #include <ctype.h>
-
-#ifndef REGTEST
-
 #include <locale.h>
 
 int iscntrl( int c )
 {
     return ( _PDCLIB_lc_ctype.entry[c].flags & _PDCLIB_CTYPE_CNTRL );
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    TESTCASE( iscntrl( '\a' ) );
-    TESTCASE( iscntrl( '\b' ) );
-    TESTCASE( iscntrl( '\n' ) );
-    TESTCASE( ! iscntrl( ' ' ) );
-    return TEST_RESULTS;
-}
-
-#endif

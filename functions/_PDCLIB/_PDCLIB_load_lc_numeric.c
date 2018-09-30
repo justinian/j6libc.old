@@ -4,8 +4,6 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#ifndef REGTEST
-
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -56,29 +54,3 @@ struct _PDCLIB_lc_lconv_numeric_t * _PDCLIB_load_lc_numeric( const char * path, 
 
     return rc;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-#ifndef REGTEST
-    FILE * fh = fopen( "test_numeric.dat", "wb" );
-    struct _PDCLIB_lc_lconv_numeric_t * lc;
-    TESTCASE( fh != NULL );
-    TESTCASE( fputs( ",\n.\n\n", fh ) != EOF );
-    fclose( fh );
-    TESTCASE( ( lc = _PDCLIB_load_lc_numeric( "./", "test" ) ) );
-    remove( "test_numeric.dat" );
-    TESTCASE( strcmp( lc->decimal_point, "," ) == 0 );
-    TESTCASE( strcmp( lc->thousands_sep, "." ) == 0 );
-    TESTCASE( strcmp( lc->grouping, "" ) == 0 );
-#endif
-
-    return TEST_RESULTS;
-}
-
-#endif

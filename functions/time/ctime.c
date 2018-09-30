@@ -6,23 +6,7 @@
 
 #include <time.h>
 
-#ifndef REGTEST
-
 char * ctime( const time_t * timer )
 {
     return NULL;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    TESTCASE( NO_TESTDRIVER );
-    return TEST_RESULTS;
-}
-
-#endif

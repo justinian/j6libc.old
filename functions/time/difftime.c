@@ -6,8 +6,6 @@
 
 #include <time.h>
 
-#ifndef REGTEST
-
 double difftime( time_t time1, time_t time0 )
 {
     /* If we want to avoid rounding errors and overflows, we need to be
@@ -54,17 +52,3 @@ double difftime( time_t time1, time_t time0 )
     return t1 - t0;
     }
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    TESTCASE( NO_TESTDRIVER );
-    return TEST_RESULTS;
-}
-
-#endif

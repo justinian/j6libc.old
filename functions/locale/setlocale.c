@@ -8,8 +8,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#ifndef REGTEST
-
 static const char * _PDCLIB_LC_category_name[ _PDCLIB_LC_COUNT ] = { NULL, "LC_COLLATE", "LC_CTYPE", "LC_MONETARY", "LC_NUMERIC", "LC_TIME", "LC_MESSAGES" };
 
 static const char * _PDCLIB_default_locale( int category )
@@ -240,18 +238,3 @@ char * setlocale( int category, const char * locale )
     return NULL;
 #endif
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    setlocale(0,"");
-    TESTCASE( NO_TESTDRIVER );
-    return TEST_RESULTS;
-}
-
-#endif

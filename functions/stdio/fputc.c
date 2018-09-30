@@ -5,9 +5,6 @@
 */
 
 #include <stdio.h>
-
-#ifndef REGTEST
-
 #include "pdclib/_PDCLIB_glue.h"
 
 /* Write the value c (cast to unsigned char) to the given stream.
@@ -31,17 +28,3 @@ int fputc( int c, struct _PDCLIB_file_t * stream )
     }
     return c;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    /* Testing covered by ftell.c */
-    return TEST_RESULTS;
-}
-
-#endif

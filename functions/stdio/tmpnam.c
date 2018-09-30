@@ -5,9 +5,6 @@
 */
 
 #include <stdio.h>
-
-#ifndef REGTEST
-
 #include "pdclib/_PDCLIB_glue.h"
 
 #include <string.h>
@@ -24,19 +21,3 @@ char * tmpnam( char * s )
     fclose( file );
     return s;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-#include <string.h>
-
-int main( void )
-{
-    TESTCASE( strlen( tmpnam( NULL ) ) < L_tmpnam );
-    return TEST_RESULTS;
-}
-
-#endif

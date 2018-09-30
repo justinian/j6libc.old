@@ -8,8 +8,6 @@
 #include <stdarg.h>
 #include <ctype.h>
 
-#ifndef REGTEST
-
 int vfscanf( FILE * restrict stream, const char * restrict format, va_list arg )
 {
     /* TODO: This function should interpret format as multibyte characters.  */
@@ -82,32 +80,3 @@ int vfscanf( FILE * restrict stream, const char * restrict format, va_list arg )
     va_end( status.arg );
     return status.n;
 }
-
-#endif
-
-#ifdef TEST
-#define _PDCLIB_FILEID "stdio/vfscanf.c"
-#define _PDCLIB_FILEIO
-
-#include "_PDCLIB_test.h"
-
-static int testscanf( FILE * stream, const char * format, ... )
-{
-    va_list ap;
-    int result;
-    va_start( ap, format );
-    result = vfscanf( stream, format, ap );
-    va_end( ap );
-    return result;
-}
-
-int main( void )
-{
-    FILE * source;
-    TESTCASE( ( source = tmpfile() ) != NULL );
-#include "scanf_testcases.h"
-    TESTCASE( fclose( source ) == 0 );
-    return TEST_RESULTS;
-}
-
-#endif

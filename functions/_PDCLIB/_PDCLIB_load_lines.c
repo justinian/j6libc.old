@@ -7,8 +7,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#ifndef REGTEST
-
 char * _PDCLIB_load_lines( FILE * fh, size_t lines )
 {
     size_t required = 0;
@@ -48,34 +46,3 @@ char * _PDCLIB_load_lines( FILE * fh, size_t lines )
 
     return rc;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-#ifndef REGTEST
-    FILE * fh = fopen( "test_lines.txt", "w+" );
-    char * rc;
-
-    TESTCASE( fh != NULL );
-    TESTCASE( fputs( "Foo\n\nBar\n", fh ) != EOF );
-
-    rewind( fh );
-    rc = _PDCLIB_load_lines( fh, 3 );
-    fclose( fh );
-    remove( "test_lines.txt" );
-
-    TESTCASE( rc != NULL );
-    TESTCASE( strcmp( rc, "Foo" ) == 0 );
-    TESTCASE( strcmp( rc + 4, "" ) == 0 );
-    TESTCASE( strcmp( rc + 5, "Bar" ) == 0 );
-
-#endif
-    return TEST_RESULTS;
-}
-
-#endif

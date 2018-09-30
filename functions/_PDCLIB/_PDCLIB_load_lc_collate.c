@@ -4,8 +4,6 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#ifndef REGTEST
-
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -44,20 +42,3 @@ struct _PDCLIB_lc_collate_t * _PDCLIB_load_lc_collate( const char * path, const 
 
     return rc;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-#ifndef REGTEST
-    TESTCASE( NO_TESTDRIVER );
-#endif
-
-    return TEST_RESULTS;
-}
-
-#endif

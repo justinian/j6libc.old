@@ -6,8 +6,6 @@
 
 #include <stdio.h>
 
-#ifndef REGTEST
-
 void setbuf( struct _PDCLIB_file_t * restrict stream, char * restrict buf )
 {
     if ( buf == NULL )
@@ -19,37 +17,3 @@ void setbuf( struct _PDCLIB_file_t * restrict stream, char * restrict buf )
         setvbuf( stream, buf, _IOFBF, BUFSIZ );
     }
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-#include <stdlib.h>
-
-int main( void )
-{
-    /* TODO: Extend testing once setvbuf() is finished. */
-#ifndef REGTEST
-    char buffer[ BUFSIZ + 1 ];
-    FILE * fh;
-    /* full buffered */
-    TESTCASE( ( fh = tmpfile() ) != NULL );
-    setbuf( fh, buffer );
-    TESTCASE( fh->buffer == buffer );
-    TESTCASE( fh->bufsize == BUFSIZ );
-    TESTCASE( ( fh->status & ( _IOFBF | _IONBF | _IOLBF ) ) == _IOFBF );
-    TESTCASE( fclose( fh ) == 0 );
-    /* not buffered */
-    TESTCASE( ( fh = tmpfile() ) != NULL );
-    setbuf( fh, NULL );
-    TESTCASE( ( fh->status & ( _IOFBF | _IONBF | _IOLBF ) ) == _IONBF );
-    TESTCASE( fclose( fh ) == 0 );
-#else
-    puts( " NOTEST setbuf() test driver is PDCLib-specific." );
-#endif
-    return TEST_RESULTS;
-}
-
-#endif

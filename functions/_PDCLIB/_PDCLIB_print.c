@@ -11,8 +11,6 @@
 #include <stddef.h>
 #include <string.h>
 
-#ifndef REGTEST
-
 /* Using an integer's bits as flags for both the conversion flags and length
    modifiers.
 */
@@ -150,68 +148,118 @@ static void intformat( intmax_t value, struct _PDCLIB_status_t * status )
 }
 
 
-/* This function recursively converts a given integer value to a character
-   stream. The conversion is done under the control of a given status struct
-   and written either to a character string or a stream, depending on that
-   same status struct. The status struct also keeps the function from exceeding
-   snprintf() limits, and enables any necessary padding / prefixing of the
-   output once the number of characters to be printed is known, which happens
-   at the lowermost recursion level.
-*/
-#define INT2BASE() \
-do \
-{ \
-    /* Special case: zero value, zero precision -- no output (but padding) */ \
-    if ( status->current == 0 && value == 0 && status->prec == 0 ) \
-    { \
-        intformat( value, status ); \
-    } \
-    else \
-    { \
-        /* Registering the character being printed at the end of the function here \
-           already so it will be taken into account when the deepestmost recursion \
-           does the prefix / padding stuff. \
-        */ \
-        ++(status->current); \
-        if ( ( value / status->base ) != 0 ) \
-        { \
-            /* More digits to be done - recurse deeper */ \
-            int2base( value / status->base, status ); \
-        } \
-        else \
-        { \
-            /* We reached the last digit, the deepest point of our recursion, and \
-               only now know how long the number to be printed actually is. Now we \
-               have to do the sign, prefix, width, and precision padding stuff \
-               before printing the numbers while we resurface from the recursion. \
-            */ \
-            intformat( value, status ); \
-        } \
-        /* Recursion tail - print the current digit. */ \
-        { \
-        int digit = value % status->base; \
-        if ( digit < 0 ) \
-        { \
-            digit *= -1; \
-        } \
-        if ( status->flags & E_lower ) \
-        { \
-            /* Lowercase letters. Same array used for strto...(). */ \
-            PUT( _PDCLIB_digits[ digit ] ); \
-        } \
-        else \
-        { \
-            /* Uppercase letters. Array only used here, only 0-F. */ \
-            PUT( _PDCLIB_Xdigits[ digit ] ); \
-        } \
-        } \
-    } \
-} while ( 0 )
-
-
 static void int2base( intmax_t value, struct _PDCLIB_status_t * status )
 {
-    INT2BASE();
+	/* This function recursively converts a given integer value to a character
+	   stream. The conversion is done under the control of a given status struct
+	   and written either to a character string or a stream, depending on that
+	   same status struct. The status struct also keeps the function from exceeding
+	   snprintf() limits, and enables any necessary padding / prefixing of the
+	   output once the number of characters to be printed is known, which happens
+	   at the lowermost recursion level.
+	*/
+
+    /* Special case: zero value, zero precision -- no output (but padding) */
+    if ( status->current == 0 && value == 0 && status->prec == 0 )
+    {
+        intformat( value, status );
+    }
+    else
+    {
+        /* Registering the character being printed at the end of the function here
+           already so it will be taken into account when the deepestmost recursion
+           does the prefix / padding stuff.
+        */
+        ++(status->current);
+        if ( ( value / status->base ) != 0 )
+        {
+            /* More digits to be done - recurse deeper */
+            int2base( value / status->base, status );
+        }
+        else
+        {
+            /* We reached the last digit, the deepest point of our recursion, and
+               only now know how long the number to be printed actually is. Now we
+               have to do the sign, prefix, width, and precision padding stuff
+               before printing the numbers while we resurface from the recursion.
+            */
+            intformat( value, status );
+        }
+
+        /* Recursion tail - print the current digit. */
+        int digit = value % status->base;
+        if ( digit < 0 )
+        {
+            digit *= -1;
+        }
+        if ( status->flags & E_lower )
+        {
+            /* Lowercase letters. Same array used for strto...(). */
+            PUT( _PDCLIB_digits[ digit ] );
+        }
+        else
+        {
+            /* Uppercase letters. Array only used here, only 0-F. */
+            PUT( _PDCLIB_Xdigits[ digit ] );
+        }
+    }
+}
+
+static void uint2base( uintmax_t value, struct _PDCLIB_status_t * status )
+{
+	/* This function recursively converts a given integer value to a character
+	   stream. The conversion is done under the control of a given status struct
+	   and written either to a character string or a stream, depending on that
+	   same status struct. The status struct also keeps the function from exceeding
+	   snprintf() limits, and enables any necessary padding / prefixing of the
+	   output once the number of characters to be printed is known, which happens
+	   at the lowermost recursion level.
+	*/
+
+    /* Special case: zero value, zero precision -- no output (but padding) */
+    if ( status->current == 0 && value == 0 && status->prec == 0 )
+    {
+        intformat( value, status );
+    }
+    else
+    {
+        /* Registering the character being printed at the end of the function here
+           already so it will be taken into account when the deepestmost recursion
+           does the prefix / padding stuff.
+        */
+        ++(status->current);
+        if ( ( value / status->base ) != 0 )
+        {
+            /* More digits to be done - recurse deeper */
+            uint2base( value / status->base, status );
+        }
+        else
+        {
+            /* We reached the last digit, the deepest point of our recursion, and
+               only now know how long the number to be printed actually is. Now we
+               have to do the sign, prefix, width, and precision padding stuff
+               before printing the numbers while we resurface from the recursion.
+            */
+            intformat( value, status );
+        }
+
+        /* Recursion tail - print the current digit. */
+        int digit = value % status->base;
+        if ( digit < 0 )
+        {
+            digit *= -1;
+        }
+        if ( status->flags & E_lower )
+        {
+            /* Lowercase letters. Same array used for strto...(). */
+            PUT( _PDCLIB_digits[ digit ] );
+        }
+        else
+        {
+            /* Uppercase letters. Array only used here, only 0-F. */
+            PUT( _PDCLIB_Xdigits[ digit ] );
+        }
+    }
 }
 
 
@@ -525,7 +573,7 @@ const char * _PDCLIB_print( const char * spec, struct _PDCLIB_status_t * status 
                     puts( "UNSUPPORTED PRINTF FLAG COMBINATION" );
                     return NULL;
             }
-            INT2BASE();
+            uint2base(value, status);
         }
         else
         {
@@ -557,7 +605,7 @@ const char * _PDCLIB_print( const char * spec, struct _PDCLIB_status_t * status 
                     puts( "UNSUPPORTED PRINTF FLAG COMBINATION" );
                     return NULL;
             }
-            INT2BASE();
+            int2base(value, status);
         }
         if ( status->flags & E_minus )
         {
@@ -574,52 +622,3 @@ const char * _PDCLIB_print( const char * spec, struct _PDCLIB_status_t * status 
     }
     return ++spec;
 }
-
-#endif
-
-#ifdef TEST
-#define _PDCLIB_FILEID "_PDCLIB/print.c"
-#define _PDCLIB_STRINGIO
-
-#include "_PDCLIB_test.h"
-
-#ifndef REGTEST
-
-static int testprintf( char * buffer, const char * format, ... )
-{
-    /* Members: base, flags, n, i, current, s, width, prec, stream, arg      */
-    struct _PDCLIB_status_t status;
-    status.base = 0;
-    status.flags = 0;
-    status.n = 100;
-    status.i = 0;
-    status.current = 0;
-    status.s = buffer;
-    status.width = 0;
-    status.prec = EOF;
-    status.stream = NULL;
-    va_start( status.arg, format );
-    memset( buffer, '\0', 100 );
-    if ( *(_PDCLIB_print( format, &status )) != '\0' )
-    {
-        printf( "_PDCLIB_print() did not return end-of-specifier on '%s'.\n", format );
-        ++TEST_RESULTS;
-    }
-    va_end( status.arg );
-    return status.i;
-}
-
-#endif
-
-#define TEST_CONVERSION_ONLY
-
-int main( void )
-{
-#ifndef REGTEST
-    char target[100];
-#include "printf_testcases.h"
-#endif
-    return TEST_RESULTS;
-}
-
-#endif

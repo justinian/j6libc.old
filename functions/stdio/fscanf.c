@@ -7,8 +7,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-#ifndef REGTEST
-
 int fscanf( FILE * restrict stream, const char * restrict format, ... )
 {
     int rc;
@@ -18,24 +16,3 @@ int fscanf( FILE * restrict stream, const char * restrict format, ... )
     va_end( ap );
     return rc;
 }
-
-#endif
-
-#ifdef TEST
-#define _PDCLIB_FILEID "stdio/fscanf.c"
-#define _PDCLIB_FILEIO
-
-#include "_PDCLIB_test.h"
-
-#define testscanf( stream, format, ... ) fscanf( stream, format, __VA_ARGS__ )
-
-int main( void )
-{
-    FILE * source;
-    TESTCASE( ( source = tmpfile() ) != NULL );
-#include "scanf_testcases.h"
-    TESTCASE( fclose( source ) == 0 );
-    return TEST_RESULTS;
-}
-
-#endif

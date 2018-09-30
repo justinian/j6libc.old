@@ -6,8 +6,6 @@
 
 #include <string.h>
 
-#ifndef REGTEST
-
 void * memcpy( void * restrict s1, const void * restrict s2, size_t n )
 {
     char * dest = (char *) s1;
@@ -18,23 +16,3 @@ void * memcpy( void * restrict s1, const void * restrict s2, size_t n )
     }
     return s1;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    char s[] = "xxxxxxxxxxx";
-    TESTCASE( memcpy( s, abcde, 6 ) == s );
-    TESTCASE( s[4] == 'e' );
-    TESTCASE( s[5] == '\0' );
-    TESTCASE( memcpy( s + 5, abcde, 5 ) == s + 5 );
-    TESTCASE( s[9] == 'e' );
-    TESTCASE( s[10] == 'x' );
-    return TEST_RESULTS;
-}
-
-#endif

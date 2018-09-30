@@ -5,9 +5,6 @@
 */
 
 #include <stdio.h>
-
-#ifndef REGTEST
-
 #include "pdclib/_PDCLIB_glue.h"
 
 int fsetpos( struct _PDCLIB_file_t * stream, const struct _PDCLIB_fpos_t * pos )
@@ -27,17 +24,3 @@ int fsetpos( struct _PDCLIB_file_t * stream, const struct _PDCLIB_fpos_t * pos )
     /* TODO: Add mbstate. */
     return 0;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    /* fsetpos() tested together with fsetpos(). */
-    return TEST_RESULTS;
-}
-
-#endif

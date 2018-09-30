@@ -6,23 +6,7 @@
 
 #include <stdio.h>
 
-#ifndef REGTEST
-
 int putchar( int c )
 {
     return fputc( c, stdout );
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    /* Testing covered by ftell.c */
-    return TEST_RESULTS;
-}
-
-#endif

@@ -6,9 +6,6 @@
 
 #include <stdio.h>
 #include <string.h>
-
-#ifndef REGTEST
-
 #include "pdclib/_PDCLIB_glue.h"
 
 size_t fwrite( const void * restrict ptr, size_t size, size_t nmemb, struct _PDCLIB_file_t * restrict stream )
@@ -77,17 +74,3 @@ size_t fwrite( const void * restrict ptr, size_t size, size_t nmemb, struct _PDC
     }
     return nmemb_i;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    /* Testing covered by fread(). */
-    return TEST_RESULTS;
-}
-
-#endif

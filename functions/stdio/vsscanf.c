@@ -8,8 +8,6 @@
 #include <stdarg.h>
 #include <ctype.h>
 
-#ifndef REGTEST
-
 int vsscanf( const char * restrict s, const char * restrict format, va_list arg )
 {
     /* TODO: This function should interpret format as multibyte characters.  */
@@ -80,30 +78,3 @@ int vsscanf( const char * restrict s, const char * restrict format, va_list arg 
     va_end( status.arg );
     return status.n;
 }
-
-#endif
-
-#ifdef TEST
-#define _PDCLIB_FILEID "stdio/vsscanf.c"
-#define _PDCLIB_STRINGIO
-
-#include "_PDCLIB_test.h"
-
-static int testscanf( const char * stream, const char * format, ... )
-{
-    va_list ap;
-    int result;
-    va_start( ap, format );
-    result = vsscanf( stream, format, ap );
-    va_end( ap );
-    return result;
-}
-
-int main( void )
-{
-    char source[100];
-#include "scanf_testcases.h"
-    return TEST_RESULTS;
-}
-
-#endif

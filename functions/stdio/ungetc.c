@@ -6,8 +6,6 @@
 
 #include <stdio.h>
 
-#ifndef REGTEST
-
 int ungetc( int c, struct _PDCLIB_file_t * stream )
 {
     if ( c == EOF || stream->ungetidx == _PDCLIB_UNGETCBUFSIZE )
@@ -16,17 +14,3 @@ int ungetc( int c, struct _PDCLIB_file_t * stream )
     }
     return stream->ungetbuf[stream->ungetidx++] = (unsigned char) c;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    /* Testing covered by ftell.c */
-    return TEST_RESULTS;
-}
-
-#endif

@@ -5,9 +5,6 @@
 */
 
 #include <stdio.h>
-
-#ifndef REGTEST
-
 #include "pdclib/_PDCLIB_glue.h"
 
 int fputs( const char * restrict s, struct _PDCLIB_file_t * restrict stream )
@@ -43,27 +40,3 @@ int fputs( const char * restrict s, struct _PDCLIB_file_t * restrict stream )
     }
     return 0;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    const char * const message = "SUCCESS testing fputs()";
-    FILE * fh;
-    size_t i;
-    TESTCASE( ( fh = tmpfile() ) != NULL );
-    TESTCASE( fputs( message, fh ) >= 0 );
-    rewind( fh );
-    for ( i = 0; i < 23; ++i )
-    {
-        TESTCASE( fgetc( fh ) == message[i] );
-    }
-    TESTCASE( fclose( fh ) == 0 );
-    return TEST_RESULTS;
-}
-
-#endif

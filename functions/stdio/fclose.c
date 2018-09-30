@@ -6,9 +6,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
-#ifndef REGTEST
-
 #include "pdclib/_PDCLIB_glue.h"
 
 extern struct _PDCLIB_file_t * _PDCLIB_filelist;
@@ -68,39 +65,3 @@ int fclose( struct _PDCLIB_file_t * stream )
     _PDCLIB_errno = _PDCLIB_ERROR;
     return -1;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-#ifndef REGTEST
-    struct _PDCLIB_file_t * file1;
-    struct _PDCLIB_file_t * file2;
-    remove( testfile1 );
-    remove( testfile2 );
-    TESTCASE( _PDCLIB_filelist == stdin );
-    TESTCASE( ( file1 = fopen( testfile1, "w" ) ) != NULL );
-    TESTCASE( _PDCLIB_filelist == file1 );
-    TESTCASE( ( file2 = fopen( testfile2, "w" ) ) != NULL );
-    TESTCASE( _PDCLIB_filelist == file2 );
-    TESTCASE( fclose( file2 ) == 0 );
-    TESTCASE( _PDCLIB_filelist == file1 );
-    TESTCASE( ( file2 = fopen( testfile2, "w" ) ) != NULL );
-    TESTCASE( _PDCLIB_filelist == file2 );
-    TESTCASE( fclose( file1 ) == 0 );
-    TESTCASE( _PDCLIB_filelist == file2 );
-    TESTCASE( fclose( file2 ) == 0 );
-    TESTCASE( _PDCLIB_filelist == stdin );
-    TESTCASE( remove( testfile1 ) == 0 );
-    TESTCASE( remove( testfile2 ) == 0 );
-#else
-    puts( " NOTEST fclose() test driver is PDCLib-specific." );
-#endif
-    return TEST_RESULTS;
-}
-
-#endif

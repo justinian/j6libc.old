@@ -1,104 +1,75 @@
-PLATFORM ?= example
+CC  := clang
+CXX := clang++
+LD  := ld.lld
 
 # This is a list of all non-source files that are part of the distribution.
 AUXFILES := Makefile Readme.txt
 
 # Directories belonging to the project
-PROJDIRS := functions include platform/${PLATFORM}
+PROJDIRS := functions include popcorn
 # Directory where binaries should be written
-BUILDDIR := .
+BUILDDIR ?= build
+
 # All source files of the project
-SRCFILES := $(shell find -L $(PROJDIRS) -type f -name "*.c")
+SRCS := $(shell find -L ${PROJDIRS} -type f -name "*.c")
 # All header files of the project
-HDRFILES := $(shell find -L $(PROJDIRS) -type f -name "*.h")
-# All object files in the library
-OBJFILES := $(patsubst %.c,$(BUILDDIR)/%.o,$(SRCFILES))
-# All test drivers (.t)
-TSTFILES := $(patsubst %.c,$(BUILDDIR)/%_t,$(SRCFILES))
-# All regression test drivers (.r)
-REGFILES := $(patsubst %.c,$(BUILDDIR)/%_r,$(SRCFILES))
-# All library dependency files (.d)
-DEPFILES := $(patsubst %.c,$(BUILDDIR)/%.d,$(SRCFILES))
-# All test driver dependency files (_t.d)
-TSTDEPFILES := $(patsubst %,$(BUILDDIR)/%.d,$(TSTFILES))
-# All regression test driver dependency files (_r.d)
-REGDEPFILES := $(patsubst %,$(BUILDDIR)/%.d,$(REGFILES))
-# All files belonging to the source distribution
-ALLFILES := $(SRCFILES) $(HDRFILES) $(AUXFILES)
+HEADERS := $(shell find -L ${PROJDIRS} -type f -name "*.h")
 
-WARNINGS := -Werror -Wall -Wextra -pedantic -Wno-unused-parameter -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Winline -Wno-long-long -Wuninitialized -Wstrict-prototypes -Wdeclaration-after-statement -Wno-unused-function
-CFLAGS := -fno-builtin -g -std=c99 -I./testing -I./platform/${PLATFORM}/include $(WARNINGS) $(USERFLAGS)
+OBJS := $(patsubst %.c,${BUILDDIR}/%.o,${SRCS})
+TSTSRCS := $(shell find -L tests -type f -name "*.c")
+TSTOBJS := $(patsubst %.c,${BUILDDIR}/%.o,${TSTSRCS})
+TSTOBJS += $(patsubst %.c,${BUILDDIR}/%_testing.o,${SRCS})
 
-.PHONY: all clean srcdist tests testdrivers regtests regtestdrivers todos fixmes help
+DEPS := $(patsubst %.c,${BUILDDIR}/%.d,${SRCS})
+TSTDEPS := $(patsubst %.c,${BUILDDIR}/%.d,${TSTSRCS})
 
-all: $(BUILDDIR)/pdclib.a testdrivers regtestdrivers
-	@echo
-	@echo "========================"
-	@echo "Executing library tests:"
-	@echo "========================"
-	@echo
-	@$(MAKE) tests | grep -v "^ TST" | grep -v "^Failed"
-	@echo
-	@echo "==========================="
-	@echo "Executing regression tests:"
-	@echo "==========================="
-	@echo
-	@$(MAKE) regtests | grep -v "^ RTST" | grep -v "^Failed"
-	@echo
-	@echo "========"
-	@echo "FIXME's:"
-	@echo "========"
-	@echo
-	@$(MAKE) fixmes
-	@echo
-	@echo "======="
-	@echo "TODO's:"
-	@echo "======="
-	@echo
-	@$(MAKE) todos | head
-	@echo "..."
+WARNINGS := -Werror -Wall -Wextra -pedantic -Wno-unused-parameter -Wshadow
+WARNINGS += -Wpointer-arith -Wcast-align -Wwrite-strings -Wmissing-declarations
+WARNINGS += -Wredundant-decls -Wnested-externs -Winline -Wno-long-long
+WARNINGS += -Wuninitialized -Wstrict-prototypes -Wdeclaration-after-statement
+WARNINGS += -Wno-unused-function
 
-$(BUILDDIR)/pdclib.a: $(OBJFILES)
-	@echo " AR	$@"
-	@ar rc $(BUILDDIR)/pdclib.a $?
-	@echo
+DEFINES := -DHAVE_MMAP=0 -DDLMALLOC_EXPORT="" -DNO_MALLINFO
+DEFINES += -DLACKS_UNISTD_H -DLACKS_FCNTL_H -DLACKS_SYS_PARAM_H
 
-tests: testdrivers
-	-@rc=0; count=0; failed=""; for file in $(TSTFILES); do echo " TST	$$file"; $$file; test=$$?; if [ $$test != 0 ]; then rc=`expr $$rc + $$test`; failed="$$failed $$file"; fi; count=`expr $$count + 1`; done; echo; echo "Tests executed (linking PDCLib): $$count  Tests failed: $$rc"; echo; for file in $$failed; do echo "Failed: $$file"; done; echo
+INCLUDES := -isystem ${PWD}/include -isystem ${PWD}/popcorn/include
 
-testdrivers: $(TSTFILES)
-	@echo
+CFLAGS := -std=c11 ${INCLUDES} ${WARNINGS} ${DEFINES} ${USERFLAGS} -ggdb
+LIBCFLAGS := -ffreestanding -nostdinc -nostdlib -std=c11 ${CFLAGS} 
 
-regtests: regtestdrivers
-	-@rc=0; count=0; failed=""; for file in $(REGFILES); do echo " RTST	$$file"; $$file; test=$$?; if [ $$test != 0 ]; then rc=`expr $$rc + $$test`; failed="$$failed $$file"; fi; count=`expr $$count + 1`; done; echo; echo "Tests executed (linking system libc): $$count  Tests failed: $$rc"; echo; for file in $$failed; do echo "Failed: $$file"; done; echo
+.PHONY: all clean test todos fixmes help
 
-regtestdrivers: $(REGFILES)
-	@echo
+all: tags ${BUILDDIR}/libc.a test
 
--include $(DEPFILES) $(TSTDEPFILES) $(REGDEPFILES)
+${BUILDDIR}/libc.a: ${OBJS}
+	ar rc ${BUILDDIR}/libc.a $?
+
+tags: ${SRCS}
+	ctags -R functions include popcorn
+
+test: ${BUILDDIR}/test
+	@if $<; then true; else echo; echo "*** TESTS FAILED ***"; false; fi
+
+${BUILDDIR}/test: ${TSTOBJS}
+	${CC} -o $@ $^
+
+-include ${DEPS} ${TSTDEPS}
 
 clean:
-	-@$(RM) $(wildcard $(OBJFILES) $(DEPFILES) $(TSTFILES) $(TSTDEPFILES) $(REGFILES) $(REGDEPFILES) $(BUILDDIR)/pdclib.a pdclib.tgz scanf_testdata_*)
-
-srcdist:
-	@tar czf pdclib.tgz $(ALLFILES)
+	-${RM} -r ${BUILDDIR}
 
 todos:
-	-@for file in $(ALLFILES:Makefile=); do grep -H TODO $$file; done; true
+	-@for file in $(shell find . -type f \! -name Makefile); do grep -H TODO $$file; done; true
 
 fixmes:
-	-@for file in $(ALLFILES:Makefile=); do grep -H FIXME $$file; done; true
+	-@for file in $(shell find . -type f \! -name Makefile); do grep -H FIXME $$file; done; true
 
 help:
 	@echo "Available make targets:"
 	@echo
-	@echo "all              - build pdclib.a"
+	@echo "all              - build libc.a"
 	@echo "clean            - remove all object files, dependency files and test drivers"
-	@echo "srcdist          - build pdclib.tgz (source tarball)"
-	@echo "tests            - build and run test drivers (link pdclib.a)"
-	@echo "  testdrivers    - build but do not run test drivers"
-	@echo "regtests         - build and run regression test drivers (link system clib)"
-	@echo "  regtestdrivers - build but do not run regression test drivers"
+	@echo "test             - build and run tests (link libc.a)"
 	@echo "todos            - list all TODO comments in the sources"
 	@echo "fixmes           - list all FIXME comments in the sources"
 	@echo "%.o              - build an individual object file"
@@ -112,17 +83,14 @@ help:
 	@echo "If you want to build out-of-source, you can specify BUILDDIR"
 	@echo "(Usage: make [...] BUILDDIR=/path/to/binaries/)."
 
-$(BUILDDIR)/%.o: %.c Makefile
-	@echo " CC	$(patsubst functions/%,%,$@)"
+${BUILDDIR}/%.o: %.c Makefile 
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -MMD -MP -I./include -c $< -o $@
+	${CC} ${LIBCFLAGS} -MMD -MP -c $< -o $@
 
-$(BUILDDIR)/%_t: %.c Makefile $(BUILDDIR)/pdclib.a
-	@echo " CC	$(patsubst functions/%,%,$@)"
+${BUILDDIR}/%_testing.o: %.c Makefile 
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -MMD -MP -DTEST -I./include $< $(BUILDDIR)/pdclib.a -o $@
+	${CC} ${CFLAGS} -DTESTING -MMD -MP -c $< -o $@
 
-$(BUILDDIR)/%_r: %.c Makefile
-	@echo " CC	$(patsubst functions/%,%,$@)"
+${BUILDDIR}/tests/%.o: tests/%.c Makefile
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -Wno-deprecated-declarations -Wno-format -MMD -MP -DTEST -DREGTEST $< -o $@
+	${CC} ${CFLAGS} -I tests -MMD -MP -c $< -o $@

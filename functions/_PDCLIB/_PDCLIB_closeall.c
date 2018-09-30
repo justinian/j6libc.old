@@ -6,8 +6,6 @@
 
 #include <stdio.h>
 
-#ifndef REGTEST
-
 extern struct _PDCLIB_file_t * _PDCLIB_filelist;
 
 void _PDCLIB_closeall( void )
@@ -21,17 +19,3 @@ void _PDCLIB_closeall( void )
         stream = next;
     }
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    /* No testdriver */
-    return TEST_RESULTS;
-}
-
-#endif

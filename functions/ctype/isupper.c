@@ -5,31 +5,9 @@
 */
 
 #include <ctype.h>
-
-#ifndef REGTEST
-
 #include <locale.h>
 
 int isupper( int c )
 {
     return ( _PDCLIB_lc_ctype.entry[c].flags & _PDCLIB_CTYPE_UPPER );
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    TESTCASE( isupper( 'A' ) );
-    TESTCASE( isupper( 'Z' ) );
-    TESTCASE( ! isupper( 'a' ) );
-    TESTCASE( ! isupper( 'z' ) );
-    TESTCASE( ! isupper( ' ' ) );
-    TESTCASE( ! isupper( '@' ) );
-    return TEST_RESULTS;
-}
-
-#endif

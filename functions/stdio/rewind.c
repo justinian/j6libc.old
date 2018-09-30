@@ -6,24 +6,8 @@
 
 #include <stdio.h>
 
-#ifndef REGTEST
-
 void rewind( struct _PDCLIB_file_t * stream )
 {
     stream->status &= ~ _PDCLIB_ERRORFLAG;
     fseek( stream, 0L, SEEK_SET );
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    /* Testing covered by ftell.c */
-    return TEST_RESULTS;
-}
-
-#endif

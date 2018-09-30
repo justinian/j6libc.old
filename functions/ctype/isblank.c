@@ -5,31 +5,9 @@
 */
 
 #include <ctype.h>
-
-#ifndef REGTEST
-
 #include <locale.h>
 
 int isblank( int c )
 {
     return ( _PDCLIB_lc_ctype.entry[c].flags & _PDCLIB_CTYPE_BLANK );
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    TESTCASE( isblank( ' ' ) );
-    TESTCASE( isblank( '\t' ) );
-    TESTCASE( ! isblank( '\v' ) );
-    TESTCASE( ! isblank( '\r' ) );
-    TESTCASE( ! isblank( 'x' ) );
-    TESTCASE( ! isblank( '@' ) );
-    return TEST_RESULTS;
-}
-
-#endif

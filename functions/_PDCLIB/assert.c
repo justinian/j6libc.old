@@ -8,8 +8,6 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#ifndef REGTEST
-
 #include "pdclib/_PDCLIB_aux.h"
 
 void _PDCLIB_assert( const char * const message1, const char * const function, const char * const message2 )
@@ -19,47 +17,3 @@ void _PDCLIB_assert( const char * const message1, const char * const function, c
     fputs( message2, stderr );
     abort();
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-#include <signal.h>
-
-static int EXPECTED_ABORT = 0;
-static int UNEXPECTED_ABORT = 1;
-
-static void aborthandler( int sig )
-{
-    TESTCASE( ! EXPECTED_ABORT );
-    exit( (signed int)TEST_RESULTS );
-}
-
-#define NDEBUG
-
-#include <assert.h>
-
-static int disabled_test( void )
-{
-    int i = 0;
-    assert( i == 0 ); /* NDEBUG set, condition met */
-    assert( i == 1 ); /* NDEBUG set, condition fails */
-    return i;
-}
-
-#undef NDEBUG
-
-#include <assert.h>
-
-int main( void )
-{
-    TESTCASE( signal( SIGABRT, &aborthandler ) != SIG_ERR );
-    TESTCASE( disabled_test() == 0 );
-    assert( UNEXPECTED_ABORT ); /* NDEBUG not set, condition met */
-    assert( EXPECTED_ABORT ); /* NDEBUG not set, condition fails - should abort */
-    return TEST_RESULTS;
-}
-
-#endif

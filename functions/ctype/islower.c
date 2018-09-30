@@ -5,31 +5,9 @@
 */
 
 #include <ctype.h>
-
-#ifndef REGTEST
-
 #include <locale.h>
 
 int islower( int c )
 {
     return ( _PDCLIB_lc_ctype.entry[c].flags & _PDCLIB_CTYPE_LOWER );
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    TESTCASE( islower( 'a' ) );
-    TESTCASE( islower( 'z' ) );
-    TESTCASE( ! islower( 'A' ) );
-    TESTCASE( ! islower( 'Z' ) );
-    TESTCASE( ! islower( ' ' ) );
-    TESTCASE( ! islower( '@' ) );
-    return TEST_RESULTS;
-}
-
-#endif
