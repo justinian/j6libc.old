@@ -6,19 +6,10 @@
 */
 
 #include "pdclib/_PDCLIB_int.h"
+#include "pdclib/null.h"
+#include "pdclib/size_t.h"
+#include "pdclib/wchar_t.h"
 
 typedef _PDCLIB_ptrdiff_t ptrdiff_t;
-
-#ifndef _PDCLIB_SIZE_T_DEFINED
-#define _PDCLIB_SIZE_T_DEFINED _PDCLIB_SIZE_T_DEFINED
-typedef _PDCLIB_size_t size_t;
-#endif
-
-typedef _PDCLIB_wchar_t   wchar_t;
-
-#ifndef _PDCLIB_NULL_DEFINED
-#define _PDCLIB_NULL_DEFINED _PDCLIB_NULL_DEFINED
-#define NULL _PDCLIB_NULL
-#endif
 
 #define offsetof( type, member ) _PDCLIB_offsetof( type, member )

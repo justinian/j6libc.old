@@ -6,11 +6,7 @@
 */
 
 #include "pdclib/_PDCLIB_int.h"
-
-#ifndef _PDCLIB_NULL_DEFINED
-#define _PDCLIB_NULL_DEFINED _PDCLIB_NULL_DEFINED
-#define NULL _PDCLIB_NULL
-#endif
+#include "pdclib/null.h"
 
 /* The structure returned by localeconv().
 
