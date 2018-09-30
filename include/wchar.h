@@ -5,7 +5,7 @@
 #include "pdclib/_PDCLIB_int.h"
 #include "pdclib/null.h"
 #include "pdclib/size_t.h"
-#include "pdclib/wchar.h"
+#include "pdclib/wchar_t.h"
 #include "pdclib/wctype_t.h"
 #include "pdclib/wint_t.h"
 
