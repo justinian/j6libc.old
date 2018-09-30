@@ -575,6 +575,7 @@ MAX_RELEASE_CHECK_RATE   default: 4095 unless not HAVE_MMAP
 #endif  /* DARWIN */
 
 #include <stddef.h>  /* For size_t */
+#include <stdint.h>  /* For uintptr_t */
 
 /* The maximum possible size_t value has all bits set */
 #define MAX_SIZE_T           (~(size_t)0)
@@ -2216,7 +2217,7 @@ typedef unsigned int flag_t;           /* The type of various bit flag sets */
   ((MCHUNK_SIZE + CHUNK_ALIGN_MASK) & ~CHUNK_ALIGN_MASK)
 
 /* conversion from malloc headers to user pointers, and back */
-#define chunk2mem(p)        ((void*)((char*)(p)       + TWO_SIZE_T_SIZES))
+#define chunk2mem(p)        ((void*)((uintptr_t)(p)       + TWO_SIZE_T_SIZES))
 #define mem2chunk(mem)      ((mchunkptr)((char*)(mem) - TWO_SIZE_T_SIZES))
 /* chunk associated with aligned address A */
 #define align_as_chunk(A)   (mchunkptr)((A) + align_offset(chunk2mem(A)))
