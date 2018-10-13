@@ -8,6 +8,7 @@
 #include "pdclib/_PDCLIB_int.h"
 #include "pdclib/null.h"
 #include "pdclib/size_t.h"
+#include "pdclib/wchar_t.h"
 
 /* Numeric conversion functions */
 
@@ -218,13 +219,9 @@ ldiv_t ldiv( long int numer, long int denom );
 lldiv_t lldiv( long long int numer, long long int denom );
 
 /* TODO: Multibyte / wide character conversion functions */
-
 /* TODO: Macro MB_CUR_MAX */
-
-/*
 int mblen( const char * s, size_t n );
 int mbtowc( wchar_t * restrict pwc, const char * restrict s, size_t n );
 int wctomb( char * s, wchar_t wc );
 size_t mbstowcs( wchar_t * restrict pwcs, const char * restrict s, size_t n );
 size_t wcstombs( char * restrict s, const wchar_t * restrict pwcs, size_t n );
-*/
