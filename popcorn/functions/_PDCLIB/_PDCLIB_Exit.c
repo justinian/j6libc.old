@@ -17,6 +17,13 @@
 
 extern noreturn void _exit(int);
 
+noreturn void _exit(int) __attribute__ ((weak));
+noreturn void _exit(int status) {
+	volatile int d = 0;
+	while ((1/d));
+	while (1);
+}
+
 void _PDCLIB_Exit( int status )
 {
 	_exit( status );

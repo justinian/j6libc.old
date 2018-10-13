@@ -4,15 +4,14 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-/* This is an example implementation of getenv() fit for use with POSIX kernels.
-*/
-
 #include <string.h>
 #include <stdlib.h>
 
 #ifndef REGTEST
 
-extern char * * environ;
+char **environ __attribute__ ((weak));
+
+extern char **environ;
 
 char * getenv( const char * name )
 {

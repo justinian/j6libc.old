@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#if 0
 static const char * _PDCLIB_LC_category_name[ _PDCLIB_LC_COUNT ] = { NULL, "LC_COLLATE", "LC_CTYPE", "LC_MONETARY", "LC_NUMERIC", "LC_TIME", "LC_MESSAGES" };
 
 static const char * _PDCLIB_default_locale( int category )
@@ -27,6 +28,7 @@ static const char * _PDCLIB_default_locale( int category )
 
     return s;
 }
+#endif
 
 char * setlocale( int category, const char * locale )
 {
