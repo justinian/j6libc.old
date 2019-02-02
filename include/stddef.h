@@ -7,6 +7,7 @@
 
 #include "pdclib/_PDCLIB_int.h"
 #include "pdclib/null.h"
+#include "pdclib/max_align_t.h"
 #include "pdclib/size_t.h"
 #include "pdclib/wchar_t.h"
 
