@@ -11,6 +11,7 @@
 #include "pdclib/size_t.h"
 #include "pdclib/wchar_t.h"
 
-typedef _PDCLIB_ptrdiff_t ptrdiff_t;
+typedef __PTRDIFF_TYPE__ ptrdiff_t;
+typedef long double      max_align_t;
 
 #define offsetof( type, member ) _PDCLIB_offsetof( type, member )

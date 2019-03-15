@@ -37,7 +37,7 @@ DEFINES += -DLACKS_UNISTD_H -DLACKS_FCNTL_H -DLACKS_SYS_PARAM_H
 INCLUDES := -isystem ${PWD}/include -isystem ${PWD}/popcorn/include
 
 CFLAGS := -std=c11 ${INCLUDES} ${WARNINGS} ${DEFINES} ${USERFLAGS} -ggdb
-LIBCFLAGS := -ffreestanding -nostdinc -nostdlib -std=c11 ${CFLAGS} 
+LIBCFLAGS := -target x86_64-elf -ffreestanding -nostdinc -nostdlib -std=c11 ${CFLAGS}
 
 .PHONY: all clean test todos fixmes help install
 

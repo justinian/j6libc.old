@@ -9,15 +9,15 @@
 
 /* 7.18.1.1 Exact-width integer types. */
 
-typedef _PDCLIB_int8_t  int8_t;
-typedef _PDCLIB_int16_t int16_t;
-typedef _PDCLIB_int32_t int32_t;
-typedef _PDCLIB_int64_t int64_t;
+typedef __INT8_TYPE__  int8_t;
+typedef __INT16_TYPE__ int16_t;
+typedef __INT32_TYPE__ int32_t;
+typedef __INT64_TYPE__ int64_t;
 
-typedef _PDCLIB_uint8_t  uint8_t;
-typedef _PDCLIB_uint16_t uint16_t;
-typedef _PDCLIB_uint32_t uint32_t;
-typedef _PDCLIB_uint64_t uint64_t;
+typedef __UINT8_TYPE__  uint8_t;
+typedef __UINT16_TYPE__ uint16_t;
+typedef __UINT32_TYPE__ uint32_t;
+typedef __UINT64_TYPE__ uint64_t;
 
 /* 7.18.1.2 Minimum-width integer types */
 
@@ -26,39 +26,39 @@ typedef _PDCLIB_uint64_t uint64_t;
    definition.
 */
 
-typedef int8_t  int_least8_t;
-typedef int16_t int_least16_t;
-typedef int32_t int_least32_t;
-typedef int64_t int_least64_t;
+typedef __INT_LEAST8_TYPE__  int_least8_t;
+typedef __INT_LEAST16_TYPE__ int_least16_t;
+typedef __INT_LEAST32_TYPE__ int_least32_t;
+typedef __INT_LEAST64_TYPE__ int_least64_t;
 
-typedef uint8_t  uint_least8_t;
-typedef uint16_t uint_least16_t;
-typedef uint32_t uint_least32_t;
-typedef uint64_t uint_least64_t;
+typedef __UINT_LEAST8_TYPE__  uint_least8_t;
+typedef __UINT_LEAST16_TYPE__ uint_least16_t;
+typedef __UINT_LEAST32_TYPE__ uint_least32_t;
+typedef __UINT_LEAST64_TYPE__ uint_least64_t;
 
 /* 7.18.1.3 Fastest minimum-width integer types */
 
 /* You are allowed to add more types here, e.g. int_fast24_t. */
 
-typedef _PDCLIB_int_fast8_t  int_fast8_t;
-typedef _PDCLIB_int_fast16_t int_fast16_t;
-typedef _PDCLIB_int_fast32_t int_fast32_t;
-typedef _PDCLIB_int_fast64_t int_fast64_t;
+typedef __INT_FAST8_TYPE__  int_fast8_t;
+typedef __INT_FAST16_TYPE__ int_fast16_t;
+typedef __INT_FAST32_TYPE__ int_fast32_t;
+typedef __INT_FAST64_TYPE__ int_fast64_t;
 
-typedef _PDCLIB_uint_fast8_t  uint_fast8_t;
-typedef _PDCLIB_uint_fast16_t uint_fast16_t;
-typedef _PDCLIB_uint_fast32_t uint_fast32_t;
-typedef _PDCLIB_uint_fast64_t uint_fast64_t;
+typedef __UINT_FAST8_TYPE__  uint_fast8_t;
+typedef __UINT_FAST16_TYPE__ uint_fast16_t;
+typedef __UINT_FAST32_TYPE__ uint_fast32_t;
+typedef __UINT_FAST64_TYPE__ uint_fast64_t;
 
 /* 7.18.1.4 Integer types capable of holding object pointers */
 
-typedef _PDCLIB_intptr_t  intptr_t;
-typedef _PDCLIB_uintptr_t uintptr_t;
+typedef __INTPTR_TYPE__  intptr_t;
+typedef __UINTPTR_TYPE__ uintptr_t;
 
 /* 7.18.1.5 Greatest-width integer types */
 
-typedef _PDCLIB_intmax_t  intmax_t;
-typedef _PDCLIB_uintmax_t uintmax_t;
+typedef __INTMAX_TYPE__  intmax_t;
+typedef __UINTMAX_TYPE__ uintmax_t;
 
 /* 7.18.2 Limits of specified-width integer types */
 
@@ -72,21 +72,21 @@ typedef _PDCLIB_uintmax_t uintmax_t;
 
 /* 7.18.2.1 Limits of exact-width integer types */
 
-#define INT8_MIN  _PDCLIB_INT8_MIN
-#define INT8_MAX  _PDCLIB_INT8_MAX
-#define UINT8_MAX _PDCLIB_UINT8_MAX
+#define INT8_MIN  (__INT8_MAX__+1)
+#define INT8_MAX  __INT8_MAX__
+#define UINT8_MAX __UINT8_MAX__
 
-#define INT16_MIN  _PDCLIB_INT16_MIN
-#define INT16_MAX  _PDCLIB_INT16_MAX
-#define UINT16_MAX _PDCLIB_UINT16_MAX
+#define INT16_MIN  (__INT16_MAX__+1)
+#define INT16_MAX  __INT16_MAX__
+#define UINT16_MAX __UINT16_MAX__
 
-#define INT32_MIN  _PDCLIB_INT32_MIN
-#define INT32_MAX  _PDCLIB_INT32_MAX
-#define UINT32_MAX _PDCLIB_UINT32_MAX
+#define INT32_MIN  (__INT32_MAX__+1)
+#define INT32_MAX  __INT32_MAX__
+#define UINT32_MAX __UINT32_MAX__
 
-#define INT64_MIN  _PDCLIB_INT64_MIN
-#define INT64_MAX  _PDCLIB_INT64_MAX
-#define UINT64_MAX _PDCLIB_UINT64_MAX
+#define INT64_MIN  (__INT64_MAX__+1)
+#define INT64_MAX  __INT64_MAX__
+#define UINT64_MAX __UINT64_MAX__
 
 /* 7.18.2.2 Limits of minimum-width integer types */
 
@@ -94,67 +94,67 @@ typedef _PDCLIB_uintmax_t uintmax_t;
    You are allowed to add more types here, e.g. int_least24_t.
 */
 
-#define INT_LEAST8_MIN  INT8_MIN
-#define INT_LEAST8_MAX  INT8_MAX
-#define UINT_LEAST8_MAX UINT8_MAX
+#define INT_LEAST8_MIN  (__INT_LEAST8_MAX__+1)
+#define INT_LEAST8_MAX  __INT_LEAST8_MAX__
+#define UINT_LEAST8_MAX __UINT_LEAST8_MAX__
 
-#define INT_LEAST16_MIN  INT16_MIN
-#define INT_LEAST16_MAX  INT16_MAX
-#define UINT_LEAST16_MAX UINT16_MAX
+#define INT_LEAST16_MIN  (__INT_LEAST16_MAX__+1)
+#define INT_LEAST16_MAX  __INT_LEAST16_MAX__
+#define UINT_LEAST16_MAX __UINT_LEAST16_MAX__
 
-#define INT_LEAST32_MIN  INT32_MIN
-#define INT_LEAST32_MAX  INT32_MAX
-#define UINT_LEAST32_MAX UINT32_MAX
+#define INT_LEAST32_MIN  (__INT_LEAST32_MAX__+1)
+#define INT_LEAST32_MAX  __INT_LEAST32_MAX__
+#define UINT_LEAST32_MAX __UINT_LEAST32_MAX__
 
-#define INT_LEAST64_MIN  INT64_MIN
-#define INT_LEAST64_MAX  INT64_MAX
-#define UINT_LEAST64_MAX UINT64_MAX
+#define INT_LEAST64_MIN  (__INT_LEAST64_MAX__+1)
+#define INT_LEAST64_MAX  __INT_LEAST64_MAX__
+#define UINT_LEAST64_MAX __UINT_LEAST64_MAX__
 
 /* 7.18.2.3 Limits of fastest minimum-width integer types */
 
-#define INT_FAST8_MIN  _PDCLIB_INT_FAST8_MIN
-#define INT_FAST8_MAX  _PDCLIB_INT_FAST8_MAX
-#define UINT_FAST8_MAX _PDCLIB_UINT_FAST8_MAX
+#define INT_FAST8_MIN  (__INT_FAST8_MAX__+1)
+#define INT_FAST8_MAX  __INT_FAST8_MAX__
+#define UINT_FAST8_MAX __UINT_FAST8_MAX__
 
-#define INT_FAST16_MIN  _PDCLIB_INT_FAST16_MIN
-#define INT_FAST16_MAX  _PDCLIB_INT_FAST16_MAX
-#define UINT_FAST16_MAX _PDCLIB_UINT_FAST16_MAX
+#define INT_FAST16_MIN  (__INT_FAST16_MAX__+1)
+#define INT_FAST16_MAX  __INT_FAST16_MAX__
+#define UINT_FAST16_MAX __UINT_FAST16_MAX__
 
-#define INT_FAST32_MIN  _PDCLIB_INT_FAST32_MIN
-#define INT_FAST32_MAX  _PDCLIB_INT_FAST32_MAX
-#define UINT_FAST32_MAX _PDCLIB_UINT_FAST32_MAX
+#define INT_FAST32_MIN  (__INT_FAST32_MAX__+1)
+#define INT_FAST32_MAX  __INT_FAST32_MAX__
+#define UINT_FAST32_MAX __UINT_FAST32_MAX__
 
-#define INT_FAST64_MIN  _PDCLIB_INT_FAST64_MIN
-#define INT_FAST64_MAX  _PDCLIB_INT_FAST64_MAX
-#define UINT_FAST64_MAX _PDCLIB_UINT_FAST64_MAX
+#define INT_FAST64_MIN  (__INT_FAST64_MAX__+1)
+#define INT_FAST64_MAX  __INT_FAST64_MAX__
+#define UINT_FAST64_MAX __UINT_FAST64_MAX__
 
 /* 7.18.2.4 Limits of integer types capable of holding object pointers */
 
-#define INTPTR_MIN  _PDCLIB_INTPTR_MIN
-#define INTPTR_MAX  _PDCLIB_INTPTR_MAX
-#define UINTPTR_MAX _PDCLIB_UINTPTR_MAX
+#define INTPTR_MIN  (__INTPTR_MAX__+1)
+#define INTPTR_MAX  __INTPTR_MAX__
+#define UINTPTR_MAX __UINTPTR_MAX__
 
 /* 7.18.2.5 Limits of greatest-width integer types */
 
-#define INTMAX_MIN  _PDCLIB_INTMAX_MIN
-#define INTMAX_MAX  _PDCLIB_INTMAX_MAX
-#define UINTMAX_MAX _PDCLIB_UINTMAX_MAX
+#define INTMAX_MIN  (__INTMAX_MAX__+1)
+#define INTMAX_MAX  __INTMAX_MAX__
+#define UINTMAX_MAX __UINTMAX_MAX__
 
 /* 7.18.3 Limits of other integer types */
 
-#define PTRDIFF_MIN _PDCLIB_PTRDIFF_MIN
-#define PTRDIFF_MAX _PDCLIB_PTRDIFF_MAX
+#define PTRDIFF_MIN (__PTRDIFF_MAX__+1)
+#define PTRDIFF_MAX __PTRDIFF_MAX__
 
-#define SIG_ATOMIC_MIN _PDCLIB_SIG_ATOMIC_MIN
-#define SIG_ATOMIC_MAX _PDCLIB_SIG_ATOMIC_MAX
+#define SIG_ATOMIC_MIN (__SIG_ATOMIC_MAX__+1)
+#define SIG_ATOMIC_MAX __SIG_ATOMIC_MAX__
 
-#define SIZE_MAX _PDCLIB_SIZE_MAX
+#define SIZE_MAX __SIZE_MAX__
 
-#define WCHAR_MIN _PDCLIB_WCHAR_MIN
-#define WCHAR_MAX _PDCLIB_WCHAR_MAX
+#define WCHAR_MIN (__WCHAR_MAX__+1)
+#define WCHAR_MAX __WCHAR_MAX__
 
-#define WINT_MIN _PDCLIB_WINT_MIN
-#define WINT_MAX _PDCLIB_WINT_MAX
+#define WINT_MIN (__WINT_MAX__+1)
+#define WINT_MAX __WINT_MAX__
 
 #endif
 
@@ -180,24 +180,24 @@ typedef _PDCLIB_uintmax_t uintmax_t;
 
 /* Expand to an integer constant of specified value and type int_leastN_t */
 
-#define INT8_C( value )  value
-#define INT16_C( value ) value
-#define INT32_C( value ) _PDCLIB_concat( value, _PDCLIB_INT32_LITERAL )
-#define INT64_C( value ) _PDCLIB_concat( value, _PDCLIB_INT64_LITERAL )
+#define INT8_C( value )  _PDCLIB_concat( value, __INT8_C_SUFFIX__ )
+#define INT16_C( value ) _PDCLIB_concat( value, __INT16_C_SUFFIX__ )
+#define INT32_C( value ) _PDCLIB_concat( value, __INT32_C_SUFFIX__ )
+#define INT64_C( value ) _PDCLIB_concat( value, __INT64_C_SUFFIX__ )
 
 /* Expand to an integer constant of specified value and type uint_leastN_t */
 
-#define UINT8_C( value )  value
-#define UINT16_C( value ) value
-#define UINT32_C( value ) _PDCLIB_concat( value, _PDCLIB_UINT32_LITERAL )
-#define UINT64_C( value ) _PDCLIB_concat( value, _PDCLIB_UINT64_LITERAL )
+#define UINT8_C( value )  _PDCLIB_concat( value, __UINT8_C_SUFFIX__ )
+#define UINT16_C( value ) _PDCLIB_concat( value, __UINT16_C_SUFFIX__ )
+#define UINT32_C( value ) _PDCLIB_concat( value, __UINT32_C_SUFFIX__ )
+#define UINT64_C( value ) _PDCLIB_concat( value, __UINT64_C_SUFFIX__ )
 
 /* 7.18.4.2 Macros for greatest-width integer constants */
 
 /* Expand to an integer constant of specified value and type intmax_t */
-#define INTMAX_C( value ) _PDCLIB_INTMAX_C( value )
+#define INTMAX_C( value ) _PDCLIB_concat( value, __INTMAX_C_SUFFIX__ )
 
 /* Expand to an integer constant of specified value and type uintmax_t */
-#define UINTMAX_C( value ) _PDCLIB_UINTMAX_C( value )
+#define UINTMAX_C( value ) _PDCLIB_concat( value, __UINTMAX_C_SUFFIX__ )
 
 #endif
