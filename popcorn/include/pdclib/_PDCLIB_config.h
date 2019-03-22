@@ -1,3 +1,4 @@
+#pragma once
 /* Internal PDCLib configuration <_PDCLIB_config.h>
    (Generic Template)
 
@@ -6,9 +7,6 @@
 */
 
 #include <pdclib/int_widths.h>
-
-#ifndef _PDCLIB_CONFIG_H
-#define _PDCLIB_CONFIG_H _PDCLIB_CONFIG_H
 
 /* -------------------------------------------------------------------------- */
 /* Misc                                                                       */
@@ -342,5 +340,3 @@ typedef int _PDCLIB_fd_t;
 typedef unsigned int wint_t;
 #endif
 
-
-#endif

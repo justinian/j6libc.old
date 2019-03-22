@@ -1,14 +1,15 @@
+#pragma once
 /* Signal handling <string.h>
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#ifndef _PDCLIB_SIGNAL_H
-#define _PDCLIB_SIGNAL_H _PDCLIB_SIGNAL_H
-
 #include "pdclib/_PDCLIB_config.h"
+#include "pdclib/_PDCLIB_cpp.h"
 #include "pdclib/sig_atomic_t.h"
+
+CPP_CHECK_BEGIN
 
 /* Signals ------------------------------------------------------------------ */
 
@@ -82,4 +83,4 @@ sighandler_t signal( int sig, sighandler_t func );
    Returns zero if successful, nonzero otherwise. */
 int raise( int sig );
 
-#endif
+CPP_CHECK_END

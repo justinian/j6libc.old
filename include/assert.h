@@ -6,6 +6,9 @@
 */
 
 #include "pdclib/_PDCLIB_aux.h"
+#include "pdclib/_PDCLIB_cpp.h"
+
+CPP_CHECK_BEGIN
 
 void _PDCLIB_assert( const char * const, const char * const, const char * const );
 
@@ -22,3 +25,5 @@ void _PDCLIB_assert( const char * const, const char * const, const char * const 
                           ", line " _PDCLIB_symbol2string( __LINE__ ) \
                           "." _PDCLIB_endl ) )
 #endif
+
+CPP_CHECK_END

@@ -5,7 +5,10 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
+#include "pdclib/_PDCLIB_cpp.h"
 #include <stdint.h>
+
+CPP_CHECK_BEGIN
 
 typedef struct _PDCLIB_imaxdiv_t imaxdiv_t;
 
@@ -243,3 +246,5 @@ intmax_t strtoimax( const char * restrict nptr, char * * restrict endptr, int ba
 uintmax_t strtoumax( const char * restrict nptr, char * * restrict endptr, int base );
 
 /* TODO: wcstoimax(), wcstoumax() */
+
+CPP_CHECK_END

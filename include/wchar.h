@@ -2,6 +2,7 @@
 /* Wide character functions <wchar.h>
 */
 
+#include "pdclib/_PDCLIB_cpp.h"
 #include "pdclib/_PDCLIB_int.h"
 #include "pdclib/null.h"
 #include "pdclib/size_t.h"
@@ -11,6 +12,8 @@
 
 #include <stdarg.h>
 #include <stdio.h>
+
+CPP_CHECK_BEGIN
 
 typedef unsigned long mbstate_t;
 
@@ -84,3 +87,5 @@ wchar_t *wmemmove(wchar_t *, const wchar_t *, size_t);
 wchar_t *wmemset(wchar_t *, wchar_t, size_t);
 int wprintf(const wchar_t *, ...);
 int wscanf(const wchar_t *, ...);
+
+CPP_CHECK_END

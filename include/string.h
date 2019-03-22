@@ -5,9 +5,12 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
+#include "pdclib/_PDCLIB_cpp.h"
 #include "pdclib/_PDCLIB_int.h"
 #include "pdclib/null.h"
 #include "pdclib/size_t.h"
+
+CPP_CHECK_BEGIN
 
 /* String function conventions */
 
@@ -171,3 +174,5 @@ char * strerror( int errnum );
 /* Returns the length of the string s (excluding terminating '\0').
 */
 size_t strlen( const char * s );
+
+CPP_CHECK_END

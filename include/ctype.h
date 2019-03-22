@@ -6,6 +6,9 @@
 */
 
 #include "pdclib/_PDCLIB_int.h"
+#include "pdclib/_PDCLIB_cpp.h"
+
+CPP_CHECK_BEGIN
 
 /* Character classification functions */
 
@@ -89,3 +92,5 @@ int tolower( int c );
    is not a lowercase letter remains unchanged.
 */
 int toupper( int c );
+
+CPP_CHECK_END

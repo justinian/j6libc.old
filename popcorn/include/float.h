@@ -1,11 +1,9 @@
+#pragma once
 /* Characteristics of floating types <float.h>
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
-
-#ifndef _PDCLIB_FLOAT_H
-#define _PDCLIB_FLOAT_H _PDCLIB_FLOAT_H
 
 #include "pdclib/_PDCLIB_config.h"
 
@@ -71,5 +69,3 @@
 #define LDBL_MAX        __LDBL_MAX__
    /* Maximum int x such that 10**x is a representable long double */
 #define LDBL_MAX_10_EXP __LDBL_MAX_10_EXP__
-
-#endif

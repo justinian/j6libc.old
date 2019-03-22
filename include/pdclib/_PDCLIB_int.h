@@ -13,10 +13,13 @@
 #include <stdbool.h>
 
 #include "pdclib/_PDCLIB_config.h"
+#include "pdclib/_PDCLIB_cpp.h"
 #include "pdclib/_PDCLIB_aux.h"
 #include "pdclib/int_widths.h"
 #include "pdclib/size_t.h"
 #include "pdclib/wchar_t.h"
+
+CPP_CHECK_BEGIN
 
 /* -------------------------------------------------------------------------- */
 /* Various <stdio.h> internals                                                */
@@ -340,3 +343,5 @@ _PDCLIB_static_assert( sizeof( sizeof( int ) ) == sizeof( size_t ), "Compiler di
 _PDCLIB_static_assert( sizeof( wchar_t ) == sizeof( L'x' ), "Compiler disagrees on _PDCLIB_wchar." );
 _PDCLIB_static_assert( sizeof( void * ) == sizeof( intptr_t ), "Compiler disagrees on _PDCLIB_intptr." );
 _PDCLIB_static_assert( sizeof( &_PDCLIB_digits[1] - &_PDCLIB_digits[0] ) == sizeof( ptrdiff_t ), "Compiler disagrees on ptrdiff_t." );
+
+CPP_CHECK_END

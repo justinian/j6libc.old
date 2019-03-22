@@ -5,9 +5,12 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
+#include "pdclib/_PDCLIB_cpp.h"
 #include "pdclib/_PDCLIB_int.h"
 #include "pdclib/null.h"
 #include "pdclib/size_t.h"
+
+CPP_CHECK_BEGIN
 
 /* These are defined to be "real types capable of representing types", with
    "range and precision of times representable in [them being] implementation-
@@ -98,3 +101,5 @@ struct tm * localtime( const time_t * timer );
    null character), or zero on failure.
 */
 size_t strftime( char * restrict s, size_t maxsize, const char * restrict format, const struct tm * restrict timeptr );
+
+CPP_CHECK_END

@@ -5,10 +5,13 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
+#include "pdclib/_PDCLIB_cpp.h"
 #include "pdclib/_PDCLIB_int.h"
 #include "pdclib/null.h"
 #include "pdclib/size_t.h"
 #include "pdclib/wchar_t.h"
+
+CPP_CHECK_BEGIN
 
 /* Numeric conversion functions */
 
@@ -225,3 +228,5 @@ int mbtowc( wchar_t * restrict pwc, const char * restrict s, size_t n );
 int wctomb( char * s, wchar_t wc );
 size_t mbstowcs( wchar_t * restrict pwcs, const char * restrict s, size_t n );
 size_t wcstombs( char * restrict s, const wchar_t * restrict pwcs, size_t n );
+
+CPP_CHECK_END

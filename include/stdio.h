@@ -5,9 +5,12 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
+#include "pdclib/_PDCLIB_cpp.h"
 #include "pdclib/_PDCLIB_int.h"
 #include "pdclib/null.h"
 #include "pdclib/size_t.h"
+
+CPP_CHECK_BEGIN
 
 /* See setvbuf(), third argument */
 #define _IOFBF 1
@@ -772,3 +775,5 @@ int ferror( FILE * stream );
    strerror( errno ) had been called).
 */
 void perror( const char * s );
+
+CPP_CHECK_END

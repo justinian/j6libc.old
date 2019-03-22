@@ -5,8 +5,11 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
+#include "pdclib/_PDCLIB_cpp.h"
 #include "pdclib/_PDCLIB_int.h"
 #include "pdclib/wint_t.h"
+
+CPP_CHECK_BEGIN
 
 // wctrans_t
 // wctype_t
@@ -131,3 +134,5 @@ wint_t towctrans( wint_t wc, wctrans_t desc );
    For unsupported properties, the function returns zero.
 */
 wctrans_t wctrans( const char * property );
+
+CPP_CHECK_END
