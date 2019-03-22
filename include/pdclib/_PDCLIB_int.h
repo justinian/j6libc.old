@@ -14,6 +14,8 @@
 
 #include "pdclib/_PDCLIB_config.h"
 #include "pdclib/_PDCLIB_aux.h"
+#include "pdclib/size_t.h"
+#include "pdclib/int_widths.h"
 
 /* -------------------------------------------------------------------------- */
 /* Various <stdio.h> internals                                                */
@@ -47,7 +49,7 @@
 /* Position / status structure for getpos() / fsetpos(). */
 struct _PDCLIB_fpos_t
 {
-    _PDCLIB_uint64_t offset; /* File position offset */
+    uint64_t         offset; /* File position offset */
     int              status; /* Multibyte parsing state (unused, reserved) */
 };
 
@@ -56,11 +58,11 @@ struct _PDCLIB_file_t
 {
     _PDCLIB_fd_t            handle;   /* OS file handle */
     char *                  buffer;   /* Pointer to buffer memory */
-    _PDCLIB_size_t          bufsize;  /* Size of buffer */
-    _PDCLIB_size_t          bufidx;   /* Index of current position in buffer */
-    _PDCLIB_size_t          bufend;   /* Index of last pre-read character in buffer */
+    size_t                  bufsize;  /* Size of buffer */
+    size_t                  bufidx;   /* Index of current position in buffer */
+    size_t                  bufend;   /* Index of last pre-read character in buffer */
     struct _PDCLIB_fpos_t   pos;      /* Offset and multibyte parsing state */
-    _PDCLIB_size_t          ungetidx; /* Number of ungetc()'ed characters */
+    size_t                  ungetidx; /* Number of ungetc()'ed characters */
     unsigned char *         ungetbuf; /* ungetc() buffer */
     unsigned int            status;   /* Status flags; see above */
     /* multibyte parsing status to be added later */
@@ -95,7 +97,7 @@ struct _PDCLIB_headnode_t
 
 struct _PDCLIB_memnode_t
 {
-    _PDCLIB_size_t size;
+    size_t size;
     struct _PDCLIB_memnode_t * next;
 };
 
@@ -103,14 +105,14 @@ struct _PDCLIB_memnode_t
 struct _PDCLIB_status_t
 {
     int              base;   /* base to which the value shall be converted   */
-    _PDCLIB_int_fast32_t flags; /* flags and length modifiers                */
-    _PDCLIB_size_t   n;      /* print: maximum characters to be written      */
+    int_fast32_t     flags;  /* flags and length modifiers                */
+    size_t           n;      /* print: maximum characters to be written      */
                              /* scan:  number matched conversion specifiers  */
-    _PDCLIB_size_t   i;      /* number of characters read/written            */
-    _PDCLIB_size_t   current;/* chars read/written in the CURRENT conversion */
+    size_t           i;      /* number of characters read/written            */
+    size_t           current;/* chars read/written in the CURRENT conversion */
     char *           s;      /* *sprintf(): target buffer                    */
                              /* *sscanf():  source string                    */
-    _PDCLIB_size_t   width;  /* specified field width                        */
+    size_t           width;  /* specified field width                        */
     int              prec;   /* specified field precision                    */
     struct _PDCLIB_file_t * stream; /* *fprintf() / *fscanf() stream         */
     _PDCLIB_va_list  arg;    /* argument stack                               */
@@ -121,11 +123,11 @@ struct _PDCLIB_status_t
 /* -------------------------------------------------------------------------- */
 
 /* This is the main function called by atoi(), atol() and atoll().            */
-_PDCLIB_intmax_t _PDCLIB_atomax( const char * s );
+intmax_t _PDCLIB_atomax( const char * s );
 
 /* Two helper functions used by strtol(), strtoul() and long long variants.   */
 const char * _PDCLIB_strtox_prelim( const char * p, char * sign, int * base );
-_PDCLIB_uintmax_t _PDCLIB_strtox_main( const char ** p, unsigned int base, _PDCLIB_uintmax_t error, _PDCLIB_uintmax_t limval, int limdigit, char * sign );
+uintmax_t _PDCLIB_strtox_main( const char ** p, unsigned int base, uintmax_t error, uintmax_t limval, int limdigit, char * sign );
 
 /* Digits arrays used by various integer conversion functions */
 extern const char _PDCLIB_digits[];
@@ -178,7 +180,7 @@ int _PDCLIB_is_leap( int year_offset );
    allocated memory holding the lines (newlines replaced with zero terminators)
    or NULL in case of error.
 */
-char * _PDCLIB_load_lines( struct _PDCLIB_file_t * fh, _PDCLIB_size_t lines );
+char * _PDCLIB_load_lines( struct _PDCLIB_file_t * fh, size_t lines );
 
 /* -------------------------------------------------------------------------- */
 /* errno                                                                      */
@@ -218,7 +220,7 @@ int * _PDCLIB_errno_func( void );
 #define _PDCLIB_CTYPE_LOWER  64
 #define _PDCLIB_CTYPE_UPPER 128
 
-#define _PDCLIB_CHARSET_SIZE ( 1 << _PDCLIB_CHAR_BIT )
+#define _PDCLIB_CHARSET_SIZE ( 1 << __CHAR_BIT__ )
 
 struct _PDCLIB_lc_lconv_numeric_t
 {
@@ -272,7 +274,7 @@ extern struct _PDCLIB_lc_collate_t _PDCLIB_lc_collate;
 
 struct _PDCLIB_lc_ctype_entry_t
 {
-    _PDCLIB_uint16_t flags;
+    uint16_t flags;
     unsigned char upper;
     unsigned char lower;
 };

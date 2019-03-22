@@ -97,7 +97,7 @@ static void intformat( intmax_t value, struct _PDCLIB_status_t * status )
     /* At this point, status->current has the number of digits queued up.
        Determine if we have a precision requirement to pad those.
     */
-    size_t prec_pads = ( (_PDCLIB_size_t)status->prec > status->current ) ? ( (_PDCLIB_size_t)status->prec - status->current ) : 0;
+    size_t prec_pads = ( (size_t)status->prec > status->current ) ? ( (size_t)status->prec - status->current ) : 0;
     if ( ! ( status->flags & ( E_minus | E_zero ) ) )
     {
         /* Space padding is only done if no zero padding or left alignment
@@ -109,7 +109,7 @@ static void intformat( intmax_t value, struct _PDCLIB_status_t * status )
            I've ever perpetrated. Greetings to Samface, DevL, and all
            sceners at Breakpoint 2006.
         */
-        size_t characters = preidx + ( ( status->current > (_PDCLIB_size_t)status->prec ) ? status->current : (_PDCLIB_size_t)status->prec );
+        size_t characters = preidx + ( ( status->current > (size_t)status->prec ) ? status->current : (size_t)status->prec );
         if ( status->width > characters )
         {
             size_t i;
@@ -288,7 +288,7 @@ static void stringformat( const char * s, struct _PDCLIB_status_t * status )
             }
         }
     }
-    if ( ! ( status->flags & E_minus ) && ( status->width > (_PDCLIB_size_t)status->prec ) )
+    if ( ! ( status->flags & E_minus ) && ( status->width > (size_t)status->prec ) )
     {
         while ( status->current < ( status->width - status->prec ) )
         {

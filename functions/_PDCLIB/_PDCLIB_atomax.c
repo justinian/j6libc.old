@@ -7,9 +7,9 @@
 #include <string.h>
 #include <ctype.h>
 
-_PDCLIB_intmax_t _PDCLIB_atomax( const char * s )
+intmax_t _PDCLIB_atomax( const char * s )
 {
-    _PDCLIB_intmax_t rc = 0;
+    intmax_t rc = 0;
     char sign = '+';
     const char * x;
     /* TODO: In other than "C" locale, additional patterns may be defined     */

@@ -1,4 +1,4 @@
-/* _PDCLIB_strtox_main( const char * *, int, _PDCLIB_uintmax_t, _PDCLIB_uintmax_t, int )
+/* _PDCLIB_strtox_main( const char * *, int, uintmax_t, uintmax_t, int )
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
@@ -9,9 +9,9 @@
 #include <string.h>
 #include <stdint.h>
 
-_PDCLIB_uintmax_t _PDCLIB_strtox_main( const char ** p, unsigned int base, uintmax_t error, uintmax_t limval, int limdigit, char * sign )
+uintmax_t _PDCLIB_strtox_main( const char ** p, unsigned int base, uintmax_t error, uintmax_t limval, int limdigit, char * sign )
 {
-    _PDCLIB_uintmax_t rc = 0;
+    uintmax_t rc = 0;
     int digit = -1;
     const char * x;
     while ( ( x = memchr( _PDCLIB_digits, tolower(**p), base ) ) != NULL )

@@ -14,7 +14,7 @@
 
 #include "pdclib/_PDCLIB_glue.h"
 
-_PDCLIB_int64_t _PDCLIB_seek( struct _PDCLIB_file_t * stream, _PDCLIB_int64_t offset, int whence )
+int64_t _PDCLIB_seek( struct _PDCLIB_file_t * stream, int64_t offset, int whence )
 {
 	_PDCLIB_errno = _PDCLIB_ERROR;
     return EOF;

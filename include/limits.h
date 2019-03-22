@@ -10,22 +10,27 @@
 /* TODO: Defined to 1 as multibyte characters are not supported yet. */
 #define MB_LEN_MAX 1
 
-#define LLONG_MIN  _PDCLIB_LLONG_MIN
-#define LLONG_MAX  _PDCLIB_LLONG_MAX
-#define ULLONG_MAX _PDCLIB_ULLONG_MAX
+#define SCHAR_MAX  __SCHAR_MAX__
+#define SCHAR_MIN  ((-SCHAR_MAX) - 1)
+#define UCHAR_MAX  (((unsigned char)SCHAR_MAX << 1) | 1)
 
-#define CHAR_BIT   _PDCLIB_CHAR_BIT
-#define CHAR_MAX   _PDCLIB_CHAR_MAX
-#define CHAR_MIN   _PDCLIB_CHAR_MIN
-#define SCHAR_MAX  _PDCLIB_SCHAR_MAX
-#define SCHAR_MIN  _PDCLIB_SCHAR_MIN
-#define UCHAR_MAX  _PDCLIB_UCHAR_MAX
-#define SHRT_MAX   _PDCLIB_SHRT_MAX
-#define SHRT_MIN   _PDCLIB_SHRT_MIN
-#define INT_MAX    _PDCLIB_INT_MAX
-#define INT_MIN    _PDCLIB_INT_MIN
-#define LONG_MAX   _PDCLIB_LONG_MAX
-#define LONG_MIN   _PDCLIB_LONG_MIN
-#define USHRT_MAX  _PDCLIB_USHRT_MAX
-#define UINT_MAX   _PDCLIB_UINT_MAX
-#define ULONG_MAX  _PDCLIB_ULONG_MAX
+#define CHAR_BIT   __CHAR_BIT__
+#define CHAR_MAX   SCHAR_MAX
+#define CHAR_MIN   SCHAR_MIN
+
+#define SHRT_MAX   __SHRT_MAX__
+#define SHRT_MIN   ((-SHRT_MAX) - 1)
+#define USHRT_MAX  (((unsigned short)SHRT_MAX << 1) | 1)
+
+#define INT_MAX    __INT_MAX__
+#define INT_MIN    ((-INT_MAX) - 1)
+#define UINT_MAX   (((unsigned int)INT_MAX << 1) | 1)
+
+#define LONG_MAX   __LONG_MAX__
+#define LONG_MIN   ((-LONG_MAX) - 1)
+#define ULONG_MAX  (((unsigned long)LONG_MAX << 1) | 1)
+
+#define LLONG_MAX  __LONG_LONG_MAX__
+#define LLONG_MIN  ((-LLONG_MAX) - 1)
+#define ULLONG_MAX (((unsigned long long)LLONG_MAX << 1) | 1)
+

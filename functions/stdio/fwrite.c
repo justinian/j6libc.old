@@ -10,7 +10,7 @@
 
 size_t fwrite( const void * restrict ptr, size_t size, size_t nmemb, struct _PDCLIB_file_t * restrict stream )
 {
-    _PDCLIB_size_t offset = 0;
+    size_t offset = 0;
     /* TODO: lineend */
     /* int lineend = 0; */
     size_t nmemb_i;

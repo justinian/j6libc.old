@@ -223,7 +223,7 @@ START_TEST( strtol )
         (strtol(overflow, &endptr, 0) == 0) &&
         (endptr == overflow) );
 
-#if LONG_MAX >> 30 == 1
+#if __SIZEOF_LONG__ == 4
     /* testing "even" overflow, i.e. base is power of two */
     TESTCASE( (strtol("2147483647", NULL, 0) == 0x7fffffff) && (errno == 0) );
     TESTCASE( (strtol("2147483648", NULL, 0) == LONG_MAX) && (errno == ERANGE) );
@@ -231,7 +231,7 @@ START_TEST( strtol )
     TESTCASE( (strtol("-2147483648", NULL, 0) == LONG_MIN) && (errno == 0) );
     TESTCASE( (strtol("-2147483649", NULL, 0) == LONG_MIN) && (errno == ERANGE) );
     /* TODO: test "odd" overflow, i.e. base is not power of two */
-#elif LONG_MAX >> 62 == 1
+#elif __SIZEOF_LONG__ == 8
     /* testing "even" overflow, i.e. base is power of two */
     TESTCASE( (strtol("9223372036854775807", NULL, 0) == 0x7fffffffffffffff) && (errno == 0) );
     TESTCASE( (strtol("9223372036854775808", NULL, 0) == LONG_MAX) && (errno == ERANGE) );
@@ -301,7 +301,7 @@ START_TEST( strtoll )
     /* TODO: These tests assume two-complement, but conversion should work */
     /* for one-complement and signed magnitude just as well. Anyone having */
     /* a platform to test this on?                                         */
-#if LLONG_MAX >> 62 == 1
+#if __SIZEOF_LONG_LONG__ == 8
     /* testing "even" overflow, i.e. base is power of two */
     TESTCASE( (strtoll("9223372036854775807", NULL, 0) == 0x7fffffffffffffff) && (errno == 0) );
     TESTCASE( (strtoll("9223372036854775808", NULL, 0) == LLONG_MAX) && (errno == ERANGE) );
@@ -309,7 +309,7 @@ START_TEST( strtoll )
     TESTCASE( (strtoll("-9223372036854775808", NULL, 0) == LLONG_MIN) && (errno == 0) );
     TESTCASE( (strtoll("-9223372036854775809", NULL, 0) == LLONG_MIN) && (errno == ERANGE) );
     /* TODO: test "odd" overflow, i.e. base is not power of two */
-#elif LLONG_MAX >> 126 == 1
+#elif __SIZEOF_LONG_LONG__ == 16
     /* testing "even" overflow, i.e. base is power of two */
     TESTCASE( (strtoll("170141183460469231731687303715884105728", NULL, 0) == 0x7fffffffffffffffffffffffffffffff) && (errno == 0) );
     TESTCASE( (strtoll("170141183460469231731687303715884105729", NULL, 0) == LLONG_MAX) && (errno == ERANGE) );
@@ -379,13 +379,13 @@ START_TEST( strtoul )
     /* for one-complement and signed magnitude just as well. Anyone having */
     /* a platform to test this on?                                         */
 /* long -> 32 bit */
-#if ULONG_MAX >> 31 == 1
+#if __SIZEOF_LONG__ == 4
     /* testing "even" overflow, i.e. base is power of two */
     TESTCASE( (strtoul("4294967295", NULL, 0) == ULONG_MAX) && (errno == 0) );
     TESTCASE( (strtoul("4294967296", NULL, 0) == ULONG_MAX) && (errno == ERANGE) );
     /* TODO: test "odd" overflow, i.e. base is not power of two */
 /* long -> 64 bit */
-#elif ULONG_MAX >> 63 == 1
+#elif __SIZEOF_LONG__ == 8
     /* testing "even" overflow, i.e. base is power of two */
     TESTCASE( (strtoul("18446744073709551615", NULL, 0) == ULONG_MAX) && (errno == 0) );
     TESTCASE( (strtoul("18446744073709551616", NULL, 0) == ULONG_MAX) && (errno == ERANGE) );
@@ -449,13 +449,13 @@ START_TEST( strtoull )
     TESTCASE( (strtoull(overflow, &endptr, 10) == 0) && (endptr == overflow) );
     TESTCASE( (strtoull(overflow, &endptr, 0) == 0) && (endptr == overflow) );
 /* long long -> 64 bit */
-#if ULLONG_MAX >> 63 == 1
+#if __SIZEOF_LONG_LONG__ == 8
     /* testing "even" overflow, i.e. base is power of two */
     TESTCASE( (strtoull("18446744073709551615", NULL, 0) == ULLONG_MAX) && (errno == 0) );
     TESTCASE( (strtoull("18446744073709551616", NULL, 0) == ULLONG_MAX) && (errno == ERANGE) );
     /* TODO: test "odd" overflow, i.e. base is not power of two */
 /* long long -> 128 bit */
-#elif ULLONG_MAX >> 127 == 1
+#elif __SIZEOF_LONG_LONG__ == 16
     /* testing "even" overflow, i.e. base is power of two */
     TESTCASE( (strtoull("340282366920938463463374607431768211455", NULL, 0) == ULLONG_MAX) && (errno == 0) );
     TESTCASE( (strtoull("340282366920938463463374607431768211456", NULL, 0) == ULLONG_MAX) && (errno == ERANGE) );

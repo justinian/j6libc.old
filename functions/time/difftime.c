@@ -31,9 +31,9 @@ double difftime( time_t time1, time_t time0 )
     }
 
     /* Use uintmax_t if wide enough. */
-    if ( sizeof( time_t ) <= sizeof( _PDCLIB_uintmax_t ) )
+    if ( sizeof( time_t ) <= sizeof( uintmax_t ) )
     {
-        _PDCLIB_uintmax_t t1 = time1, t0 = time0;
+        uintmax_t t1 = time1, t0 = time0;
         return ( time1 >= time0 ) ? t1 - t0 : -(double)( t0 - t1 );
     }
 

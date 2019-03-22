@@ -32,7 +32,7 @@
 #define sym2v( x ) #x
 #define sym2s( x ) sym2v( x )
 
-#if INT_MAX >> 15 == 1
+#if __SIZEOF_INT__ == 2
 
 #define UINT_DIG 5
 #define INT_DIG  5
@@ -52,7 +52,7 @@
 #define INT_MIN_HEX_STR
 #define UINT_MAX_HEX_STR
 
-#elif UINT_MAX >> 31 == 1
+#elif __SIZEOF_INT__ == 4
 
 #define UINT_DIG 10
 #define INT_DIG  10
@@ -72,7 +72,7 @@
 #define INT_MIN_HEX_STR
 #define UINT_MAX_HEX_STR
 
-#elif UINT_MAX >> 63 == 1
+#elif __SIZEOF_INT__ == 8
 
 #define UINT_DIG 20
 #define INT_DIG  19
@@ -99,7 +99,7 @@
 #endif
 
 
-#if ULONG_MAX >> 31 == 1
+#if __SIZEOF_LONG__ == 4
 
 #define ULONG_DIG 10
 #define LONG_DIG  10
@@ -113,7 +113,7 @@
 #define LONG_MIN_HEX_STR
 #define ULONG_MAX_HEX_STR
 
-#elif ULONG_MAX >> 63 == 1
+#elif __SIZEOF_LONG__ == 8
 
 #define ULONG_DIG 20
 #define LONG_DIG  19
@@ -134,7 +134,7 @@
 #endif
 
 
-#if ULLONG_MAX >> 63 == 1
+#if __SIZEOF_LONG_LONG__ == 8
 
 #define ULLONG_DIG 20
 #define LLONG_DIG  19
@@ -148,7 +148,7 @@
 #define LLONG_MIN_HEX_STR
 #define ULLONG_MAX_HEX_STR
 
-#elif ULLONG_MAX >> 127 == 1
+#elif __SIZEOF_LONG_LONG__ == 16
 
 #define ULLONG_DIG 38
 #define LLONG_DIG  38

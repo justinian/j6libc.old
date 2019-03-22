@@ -5,6 +5,8 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
+#include <pdclib/int_widths.h>
+
 #ifndef _PDCLIB_CONFIG_H
 #define _PDCLIB_CONFIG_H _PDCLIB_CONFIG_H
 
@@ -177,8 +179,8 @@ struct _PDCLIB_lldiv_t
 
 struct _PDCLIB_imaxdiv_t
 {
-    _PDCLIB_intmax quot;
-    _PDCLIB_intmax rem;
+    intmax_t quot;
+    intmax_t rem;
 };
 
 /* -------------------------------------------------------------------------- */

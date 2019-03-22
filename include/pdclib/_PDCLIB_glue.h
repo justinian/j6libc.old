@@ -52,7 +52,7 @@ int _PDCLIB_fillbuffer( struct _PDCLIB_file_t * stream );
 /* A system call that repositions within a file. Returns new offset on success,
    -1 / errno on error.
 */
-_PDCLIB_int64_t _PDCLIB_seek( struct _PDCLIB_file_t * stream, _PDCLIB_int64_t offset, int whence );
+int64_t _PDCLIB_seek( struct _PDCLIB_file_t * stream, int64_t offset, int whence );
 
 /* A system call that closes a file identified by given file descriptor. Return
    zero on success, non-zero otherwise.
