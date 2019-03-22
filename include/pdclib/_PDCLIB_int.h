@@ -14,8 +14,9 @@
 
 #include "pdclib/_PDCLIB_config.h"
 #include "pdclib/_PDCLIB_aux.h"
-#include "pdclib/size_t.h"
 #include "pdclib/int_widths.h"
+#include "pdclib/size_t.h"
+#include "pdclib/wchar_t.h"
 
 /* -------------------------------------------------------------------------- */
 /* Various <stdio.h> internals                                                */
@@ -334,10 +335,8 @@ _PDCLIB_static_assert( sizeof( long ) == _PDCLIB_LONG_BYTES, "Compiler disagrees
 _PDCLIB_static_assert( sizeof( long long ) == _PDCLIB_LLONG_BYTES, "Compiler disagrees on _PDCLIB_LLONG_BYTES." );
 
 _PDCLIB_static_assert( ( (char)-1 < 0 ) == _PDCLIB_CHAR_SIGNED, "Compiler disagrees on _PDCLIB_CHAR_SIGNED." );
-_PDCLIB_static_assert( sizeof( sizeof( int ) ) == sizeof( _PDCLIB_size ), "Compiler disagrees on _PDCLIB_size." );
 
-_PDCLIB_static_assert( sizeof( _PDCLIB_wchar ) == sizeof( L'x' ), "Compiler disagrees on _PDCLIB_wchar." );
-
-_PDCLIB_static_assert( sizeof( void * ) == sizeof( _PDCLIB_intptr ), "Compiler disagrees on _PDCLIB_intptr." );
-
-_PDCLIB_static_assert( sizeof( &_PDCLIB_digits[1] - &_PDCLIB_digits[0] ) == sizeof( _PDCLIB_ptrdiff ), "Compiler disagrees on _PDCLIB_ptrdiff." );
+_PDCLIB_static_assert( sizeof( sizeof( int ) ) == sizeof( size_t ), "Compiler disagrees on size_t." );
+_PDCLIB_static_assert( sizeof( wchar_t ) == sizeof( L'x' ), "Compiler disagrees on _PDCLIB_wchar." );
+_PDCLIB_static_assert( sizeof( void * ) == sizeof( intptr_t ), "Compiler disagrees on _PDCLIB_intptr." );
+_PDCLIB_static_assert( sizeof( &_PDCLIB_digits[1] - &_PDCLIB_digits[0] ) == sizeof( ptrdiff_t ), "Compiler disagrees on ptrdiff_t." );

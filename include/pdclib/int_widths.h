@@ -48,6 +48,7 @@ typedef __UINT_FAST64_TYPE__ uint_fast64_t;
 
 typedef __INTPTR_TYPE__  intptr_t;
 typedef __UINTPTR_TYPE__ uintptr_t;
+typedef __PTRDIFF_TYPE__ ptrdiff_t;
 
 /* 7.18.1.5 Greatest-width integer types */
 

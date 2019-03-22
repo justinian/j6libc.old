@@ -8,6 +8,7 @@
 #define _PDCLIB_SIGNAL_H _PDCLIB_SIGNAL_H
 
 #include "pdclib/_PDCLIB_config.h"
+#include "pdclib/sig_atomic_t.h"
 
 /* Signals ------------------------------------------------------------------ */
 
@@ -53,8 +54,6 @@ typedef void (*sighandler_t)(int);
 #define SIG_DFL (sighandler_t)0
 #define SIG_ERR (sighandler_t)-1
 #define SIG_IGN (sighandler_t)1
-
-typedef _PDCLIB_sig_atomic sig_atomic_t;
 
 /* Installs a signal handler "func" for the given signal.
    A signal handler is a function that takes an integer as argument (the signal
