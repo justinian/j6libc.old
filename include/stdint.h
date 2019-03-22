@@ -20,20 +20,20 @@
 
 /* 7.18.2.1 Limits of exact-width integer types */
 
-#define INT8_MIN  (__INT8_MAX__+1)
 #define INT8_MAX  __INT8_MAX__
+#define INT8_MIN  ((-INT8_MAX) - 1)
 #define UINT8_MAX __UINT8_MAX__
 
-#define INT16_MIN  (__INT16_MAX__+1)
 #define INT16_MAX  __INT16_MAX__
+#define INT16_MIN  ((-INT16_MAX) - 1)
 #define UINT16_MAX __UINT16_MAX__
 
-#define INT32_MIN  (__INT32_MAX__+1)
 #define INT32_MAX  __INT32_MAX__
+#define INT32_MIN  ((-INT32_MAX) - 1)
 #define UINT32_MAX __UINT32_MAX__
 
-#define INT64_MIN  (__INT64_MAX__+1)
 #define INT64_MAX  __INT64_MAX__
+#define INT64_MIN  ((-INT64_MAX) - 1)
 #define UINT64_MAX __UINT64_MAX__
 
 /* 7.18.2.2 Limits of minimum-width integer types */
@@ -42,67 +42,67 @@
    You are allowed to add more types here, e.g. int_least24_t.
 */
 
-#define INT_LEAST8_MIN  (__INT_LEAST8_MAX__+1)
 #define INT_LEAST8_MAX  __INT_LEAST8_MAX__
+#define INT_LEAST8_MIN  ((-INT_LEAST8_MAX) - 1)
 #define UINT_LEAST8_MAX __UINT_LEAST8_MAX__
 
-#define INT_LEAST16_MIN  (__INT_LEAST16_MAX__+1)
 #define INT_LEAST16_MAX  __INT_LEAST16_MAX__
+#define INT_LEAST16_MIN  ((-INT_LEAST16_MAX) - 1)
 #define UINT_LEAST16_MAX __UINT_LEAST16_MAX__
 
-#define INT_LEAST32_MIN  (__INT_LEAST32_MAX__+1)
 #define INT_LEAST32_MAX  __INT_LEAST32_MAX__
+#define INT_LEAST32_MIN  ((-INT_LEAST32_MAX) - 1)
 #define UINT_LEAST32_MAX __UINT_LEAST32_MAX__
 
-#define INT_LEAST64_MIN  (__INT_LEAST64_MAX__+1)
 #define INT_LEAST64_MAX  __INT_LEAST64_MAX__
+#define INT_LEAST64_MIN  ((-INT_LEAST64_MAX) - 1)
 #define UINT_LEAST64_MAX __UINT_LEAST64_MAX__
 
 /* 7.18.2.3 Limits of fastest minimum-width integer types */
 
-#define INT_FAST8_MIN  (__INT_FAST8_MAX__+1)
 #define INT_FAST8_MAX  __INT_FAST8_MAX__
+#define INT_FAST8_MIN  ((-INT_FAST8_MAX) - 1)
 #define UINT_FAST8_MAX __UINT_FAST8_MAX__
 
-#define INT_FAST16_MIN  (__INT_FAST16_MAX__+1)
 #define INT_FAST16_MAX  __INT_FAST16_MAX__
+#define INT_FAST16_MIN  ((-INT_FAST16_MAX) - 1)
 #define UINT_FAST16_MAX __UINT_FAST16_MAX__
 
-#define INT_FAST32_MIN  (__INT_FAST32_MAX__+1)
 #define INT_FAST32_MAX  __INT_FAST32_MAX__
+#define INT_FAST32_MIN  ((-INT_FAST32_MAX) - 1)
 #define UINT_FAST32_MAX __UINT_FAST32_MAX__
 
-#define INT_FAST64_MIN  (__INT_FAST64_MAX__+1)
 #define INT_FAST64_MAX  __INT_FAST64_MAX__
+#define INT_FAST64_MIN  ((-INT_FAST64_MAX) - 1)
 #define UINT_FAST64_MAX __UINT_FAST64_MAX__
 
 /* 7.18.2.4 Limits of integer types capable of holding object pointers */
 
-#define INTPTR_MIN  (__INTPTR_MAX__+1)
 #define INTPTR_MAX  __INTPTR_MAX__
+#define INTPTR_MIN  ((-INTPTR_MAX) - 1)
 #define UINTPTR_MAX __UINTPTR_MAX__
 
 /* 7.18.2.5 Limits of greatest-width integer types */
 
-#define INTMAX_MIN  (__INTMAX_MAX__+1)
 #define INTMAX_MAX  __INTMAX_MAX__
+#define INTMAX_MIN  ((-INTMAX_MAX) - 1)
 #define UINTMAX_MAX __UINTMAX_MAX__
 
 /* 7.18.3 Limits of other integer types */
 
-#define PTRDIFF_MIN (__PTRDIFF_MAX__+1)
 #define PTRDIFF_MAX __PTRDIFF_MAX__
+#define PTRDIFF_MIN ((-PTRDIFF_MAX) - 1)
 
-#define SIG_ATOMIC_MIN (__SIG_ATOMIC_MAX__+1)
 #define SIG_ATOMIC_MAX __SIG_ATOMIC_MAX__
+#define SIG_ATOMIC_MIN ((-SIG_ATOMIC_MAX) - 1)
 
 #define SIZE_MAX __SIZE_MAX__
 
-#define WCHAR_MIN (__WCHAR_MAX__+1)
 #define WCHAR_MAX __WCHAR_MAX__
+#define WCHAR_MIN ((-WCHAR_MAX) - 1)
 
-#define WINT_MIN (__WINT_MAX__+1)
 #define WINT_MAX __WINT_MAX__
+#define WINT_MIN ((-WINT_MAX) - 1)
 
 #endif
 

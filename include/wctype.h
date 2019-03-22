@@ -6,8 +6,7 @@
 */
 
 #include "pdclib/_PDCLIB_int.h"
-
-typedef _PDCLIB_wint_t wint_t;
+#include "pdclib/wint_t.h"
 
 // wctrans_t
 // wctype_t
