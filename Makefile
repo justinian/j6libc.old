@@ -12,17 +12,20 @@ PROJDIRS := functions include popcorn
 BUILDDIR ?= build
 
 # All source files of the project
-SRCS := $(shell find -L ${PROJDIRS} -type f -name "*.c")
+C_SRCS := $(shell find -L ${PROJDIRS} -type f -name "*.c")
+S_SRCS := $(shell find -L ${PROJDIRS} -type f -name "*.s")
 # All header files of the project
 HEADERS := $(shell find -L include -type f -name "*.h")
 POPHEADERS := $(shell find -L popcorn/include -type f -name "*.h")
 
-OBJS := $(patsubst %.c,${BUILDDIR}/%.o,${SRCS})
+OBJS := $(patsubst %.c,${BUILDDIR}/%.c.o,${C_SRCS})
+OBJS += $(patsubst %.s,${BUILDDIR}/%.s.o,${S_SRCS})
 TSTSRCS := $(shell find -L tests -type f -name "*.c")
 TSTOBJS := $(patsubst %.c,${BUILDDIR}/%.o,${TSTSRCS})
-TSTOBJS += $(patsubst %.c,${BUILDDIR}/%_testing.o,${SRCS})
+TSTOBJS += $(patsubst %.c,${BUILDDIR}/%_testing.o,${C_SRCS})
+TSTOBJS += $(patsubst %.s,${BUILDDIR}/%.s.o,${S_SRCS})
 
-DEPS := $(patsubst %.c,${BUILDDIR}/%.d,${SRCS})
+DEPS := $(patsubst %.c,${BUILDDIR}/%.d,${C_SRCS})
 TSTDEPS := $(patsubst %.c,${BUILDDIR}/%.d,${TSTSRCS})
 
 WARNINGS := -Werror -Wall -Wextra -pedantic -Wno-unused-parameter -Wshadow
@@ -92,9 +95,13 @@ install: ${BUILDDIR}/libc.a
 	for hdr in ${HEADERS}; do install -D $${hdr} "${PREFIX}/$${hdr}"; done
 	for hdr in $(patsubst popcorn/%,%,${POPHEADERS}); do install -D "popcorn/$${hdr}" "${PREFIX}/$${hdr}"; done
 
-${BUILDDIR}/%.o: %.c Makefile 
+${BUILDDIR}/%.c.o: %.c Makefile 
 	@mkdir -p $(dir $@)
 	${CC} ${LIBCFLAGS} -MMD -MP -c $< -o $@
+
+${BUILDDIR}/%.s.o: %.s Makefile 
+	@mkdir -p $(dir $@)
+	nasm -f elf64 $< -o $@
 
 ${BUILDDIR}/%_testing.o: %.c Makefile 
 	@mkdir -p $(dir $@)
