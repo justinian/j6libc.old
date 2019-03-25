@@ -29,7 +29,7 @@ WARNINGS := -Werror -Wall -Wextra -pedantic -Wno-unused-parameter -Wshadow
 WARNINGS += -Wpointer-arith -Wcast-align -Wwrite-strings -Wmissing-declarations
 WARNINGS += -Wredundant-decls -Wnested-externs -Winline -Wno-long-long
 WARNINGS += -Wuninitialized -Wstrict-prototypes -Wdeclaration-after-statement
-WARNINGS += -Wno-unused-function
+WARNINGS += -Wno-unused-function -Wno-memset-transposed-args
 
 DEFINES := -DHAVE_MMAP=0 -DDLMALLOC_EXPORT="" -DNO_MALLINFO
 DEFINES += -DLACKS_UNISTD_H -DLACKS_FCNTL_H -DLACKS_SYS_PARAM_H
