@@ -1,0 +1,29 @@
+{% extends "target.default.j2" %}
+
+{% block variables %}
+
+ccflags = $ccflags $
+    -nostdlib $
+    -nodefaultlibs $
+    -fno-builtin $
+    -mno-sse $
+    -fno-omit-frame-pointer $
+    -g $
+    -ggdb
+
+cxxflags = $cxxflags $
+    -fno-exceptions $
+    -fno-rtti
+
+ldflags = $ldflags $
+    -g $
+    -ggdb $
+    -nostdlib $
+    -Bsymbolic $
+    -nostartfiles $
+    -Bstatic
+
+{% endblock %}
+
+# vim: ft=ninja et ts=4 sts=4 sw=4
+

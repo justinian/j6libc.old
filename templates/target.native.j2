@@ -1,0 +1,25 @@
+{% extends "target.default.j2" %}
+
+{% block variables %}
+
+ccflags = $ccflags $
+    -nostdlib $
+    -nodefaultlibs $
+    -fno-builtin $
+    -mno-sse $
+    -fno-omit-frame-pointer $
+    -g $
+    -ggdb $
+    -isystem${srcroot}/include $
+    -isystem${srcroot}/popcorn/include $
+    -Wno-float-equal $
+    -Wno-memset-transposed-args
+
+libs = $libs $
+    -L${builddir} $
+    -lc
+
+{% endblock %}
+
+# vim: ft=ninja et ts=4 sts=4 sw=4
+
