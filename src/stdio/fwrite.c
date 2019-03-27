@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 #include <string.h>
-#include "pdclib/_PDCLIB_glue.h"
+#include "poplibc/glue.h"
 
 size_t fwrite( const void * restrict ptr, size_t size, size_t nmemb, struct _PDCLIB_file_t * restrict stream )
 {

@@ -5,7 +5,7 @@
 */
 
 #include <stdio.h>
-#include "pdclib/_PDCLIB_glue.h"
+#include "poplibc/glue.h"
 
 char * fgets( char * restrict s, int size, struct _PDCLIB_file_t * restrict stream )
 {

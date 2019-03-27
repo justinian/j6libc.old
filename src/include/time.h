@@ -5,10 +5,10 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#include "pdclib/_PDCLIB_cpp.h"
-#include "pdclib/_PDCLIB_int.h"
-#include "pdclib/null.h"
-#include "pdclib/size_t.h"
+#include "poplibc/cpp.h"
+#include "poplibc/int.h"
+#include "poplibc/null.h"
+#include "poplibc/size_t.h"
 
 CPP_CHECK_BEGIN
 

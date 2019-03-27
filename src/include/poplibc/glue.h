@@ -1,17 +1,17 @@
 #pragma once
-/* OS glue functions declaration <_PDCLIB_glue.h>
+/* OS glue functions declaration <glue.h>
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#include "pdclib/_PDCLIB_int.h"
+#include "poplibc/int.h"
 
 /* -------------------------------------------------------------------------- */
 /* OS "glue", part 2                                                          */
 /* These are the functions you will have to touch, as they are where PDCLib   */
 /* interfaces with the operating system.                                      */
-/* They operate on data types partially defined by _PDCLIB_config.h.          */
+/* They operate on data types partially defined by config.h.          */
 /* -------------------------------------------------------------------------- */
 
 /* stdlib.h */

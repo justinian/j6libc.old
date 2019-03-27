@@ -2,13 +2,13 @@
 /* Wide character functions <wchar.h>
 */
 
-#include "pdclib/_PDCLIB_cpp.h"
-#include "pdclib/_PDCLIB_int.h"
-#include "pdclib/null.h"
-#include "pdclib/size_t.h"
-#include "pdclib/wchar_t.h"
-#include "pdclib/wctype_t.h"
-#include "pdclib/wint_t.h"
+#include "poplibc/cpp.h"
+#include "poplibc/int.h"
+#include "poplibc/null.h"
+#include "poplibc/size_t.h"
+#include "poplibc/wchar_t.h"
+#include "poplibc/wctype_t.h"
+#include "poplibc/wint_t.h"
 
 #include <stdarg.h>
 #include <stdio.h>

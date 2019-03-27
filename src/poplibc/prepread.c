@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 
-#include "pdclib/_PDCLIB_glue.h"
+#include "poplibc/glue.h"
 
 int _PDCLIB_prepread( struct _PDCLIB_file_t * stream )
 {
@@ -16,7 +16,7 @@ int _PDCLIB_prepread( struct _PDCLIB_file_t * stream )
     {
         /* Function called on illegal (e.g. output) stream.
            See comments on implementation-defined errno values in
-           <_PDCLIB_config.h>.
+           <config.h>.
         */
         _PDCLIB_errno = _PDCLIB_ERROR;
         stream->status |= _PDCLIB_ERRORFLAG;

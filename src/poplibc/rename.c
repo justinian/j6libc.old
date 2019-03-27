@@ -1,31 +1,31 @@
-/* _PDCLIB_open( const char * const, int )
+/* _PDCLIB_rename( const char *, const char * )
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-/* This is an example implementation of _PDCLIB_open() fit for use with POSIX
-   kernels.
-*/
+/* This is an example implementation of _PDCLIB_rename() fit for use with
+   POSIX kernels.
+ */
+
+#include <stdio.h>
 
 #ifndef REGTEST
 
-#include "pdclib/_PDCLIB_glue.h"
+#include "poplibc/glue.h"
 
-int _PDCLIB_open( const char * const filename, unsigned int mode )
+int _PDCLIB_rename( const char * old, const char * new )
 {
 	_PDCLIB_errno = _PDCLIB_ERROR;
-    return -1;
+	return EOF;
 }
 
 #endif
 
 #ifdef TEST
-
 #include "_PDCLIB_test.h"
 
 #include <stdlib.h>
-#include <string.h>
 
 int main( void )
 {

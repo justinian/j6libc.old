@@ -1,5 +1,5 @@
 #pragma once
-/* PDCLib internal integer logic <_PDCLIB_int.h>
+/* PDCLib internal integer logic <int.h>
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
@@ -12,12 +12,12 @@
 
 #include <stdbool.h>
 
-#include "pdclib/_PDCLIB_config.h"
-#include "pdclib/_PDCLIB_cpp.h"
-#include "pdclib/_PDCLIB_aux.h"
-#include "pdclib/int_widths.h"
-#include "pdclib/size_t.h"
-#include "pdclib/wchar_t.h"
+#include "poplibc/config.h"
+#include "poplibc/cpp.h"
+#include "poplibc/aux.h"
+#include "poplibc/int_widths.h"
+#include "poplibc/size_t.h"
+#include "poplibc/wchar_t.h"
 
 CPP_CHECK_BEGIN
 
@@ -341,7 +341,7 @@ _PDCLIB_static_assert( ( (char)-1 < 0 ) == _PDCLIB_CHAR_SIGNED, "Compiler disagr
 
 _PDCLIB_static_assert( sizeof( sizeof( int ) ) == sizeof( size_t ), "Compiler disagrees on size_t." );
 _PDCLIB_static_assert( sizeof( wchar_t ) == sizeof( L'x' ), "Compiler disagrees on _PDCLIB_wchar." );
-_PDCLIB_static_assert( sizeof( void * ) == sizeof( intptr_t ), "Compiler disagrees on _PDCLIB_intptr." );
+_PDCLIB_static_assert( sizeof( void * ) == sizeof( intptr_t ), "Compiler disagrees on intptr." );
 _PDCLIB_static_assert( sizeof( &_PDCLIB_digits[1] - &_PDCLIB_digits[0] ) == sizeof( ptrdiff_t ), "Compiler disagrees on ptrdiff_t." );
 
 CPP_CHECK_END

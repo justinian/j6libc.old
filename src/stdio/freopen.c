@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "pdclib/_PDCLIB_glue.h"
+#include "poplibc/glue.h"
 
 struct _PDCLIB_file_t * freopen( const char * restrict filename, const char * restrict mode, struct _PDCLIB_file_t * restrict stream )
 {

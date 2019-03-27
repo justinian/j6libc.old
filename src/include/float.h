@@ -5,7 +5,7 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#include "pdclib/_PDCLIB_config.h"
+#include "poplibc/config.h"
 
 #define FLT_ROUNDS      _PDCLIB_FLT_ROUNDS
 #define FLT_EVAL_METHOD _PDCLIB_FLT_EVAL_METHOD

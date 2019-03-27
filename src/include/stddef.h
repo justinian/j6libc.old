@@ -5,11 +5,11 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#include "pdclib/_PDCLIB_int.h"
-#include "pdclib/null.h"
-#include "pdclib/max_align_t.h"
-#include "pdclib/size_t.h"
-#include "pdclib/wchar_t.h"
+#include "poplibc/int.h"
+#include "poplibc/null.h"
+#include "poplibc/max_align_t.h"
+#include "poplibc/size_t.h"
+#include "poplibc/wchar_t.h"
 
 typedef __PTRDIFF_TYPE__ ptrdiff_t;
 

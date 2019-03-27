@@ -5,8 +5,8 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#include "pdclib/_PDCLIB_aux.h"
-#include "pdclib/_PDCLIB_cpp.h"
+#include "poplibc/aux.h"
+#include "poplibc/cpp.h"
 
 CPP_CHECK_BEGIN
 

@@ -5,7 +5,7 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#include "pdclib/_PDCLIB_int.h"
+#include "poplibc/int.h"
 
 /* TODO: Defined to 1 as multibyte characters are not supported yet. */
 #define MB_LEN_MAX 1

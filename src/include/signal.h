@@ -5,9 +5,9 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#include "pdclib/_PDCLIB_config.h"
-#include "pdclib/_PDCLIB_cpp.h"
-#include "pdclib/sig_atomic_t.h"
+#include "poplibc/config.h"
+#include "poplibc/cpp.h"
+#include "poplibc/sig_atomic_t.h"
 
 CPP_CHECK_BEGIN
 

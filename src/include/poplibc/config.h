@@ -1,12 +1,12 @@
 #pragma once
-/* Internal PDCLib configuration <_PDCLIB_config.h>
+/* Internal PDCLib configuration <config.h>
    (Generic Template)
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#include <pdclib/int_widths.h>
+#include <poplibc/int_widths.h>
 
 /* -------------------------------------------------------------------------- */
 /* Misc                                                                       */
@@ -188,7 +188,7 @@ typedef __builtin_va_list _PDCLIB_va_list;
 
 #else
 
-#error Please create your own _PDCLIB_config.h. Using the existing one as-is will not work.
+#error Please create your own config.h. Using the existing one as-is will not work.
 
 #endif
 
@@ -196,7 +196,7 @@ typedef __builtin_va_list _PDCLIB_va_list;
 /* OS "glue", part 1                                                          */
 /* These are values and data type definitions that you would have to adapt to */
 /* the capabilities and requirements of your OS.                              */
-/* The actual *functions* of the OS interface are declared in _PDCLIB_glue.h. */
+/* The actual *functions* of the OS interface are declared in glue.h. */
 /* -------------------------------------------------------------------------- */
 
 /* Memory management -------------------------------------------------------- */

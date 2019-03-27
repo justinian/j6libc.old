@@ -5,7 +5,7 @@
 */
 
 #include <stdio.h>
-#include "pdclib/_PDCLIB_glue.h"
+#include "poplibc/glue.h"
 
 int fsetpos( struct _PDCLIB_file_t * stream, const struct _PDCLIB_fpos_t * pos )
 {

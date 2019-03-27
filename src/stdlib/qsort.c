@@ -32,7 +32,7 @@ static inline void memswp( char * i, char * j, size_t size )
 #define POP( base, limit ) stackptr -= 2; base = stackptr[0]; limit = stackptr[1]
 /* TODO: Stack usage is log2( nmemb ) (minus what T shaves off the worst case).
          Worst-case nmemb is platform dependent and should probably be
-         configured through _PDCLIB_config.h.
+         configured through config.h.
 */
 #define STACKSIZE 64
 

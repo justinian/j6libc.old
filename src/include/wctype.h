@@ -5,9 +5,9 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#include "pdclib/_PDCLIB_cpp.h"
-#include "pdclib/_PDCLIB_int.h"
-#include "pdclib/wint_t.h"
+#include "poplibc/cpp.h"
+#include "poplibc/int.h"
+#include "poplibc/wint_t.h"
 
 CPP_CHECK_BEGIN
 

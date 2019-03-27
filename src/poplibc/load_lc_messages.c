@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "pdclib/_PDCLIB_int.h"
+#include "poplibc/int.h"
 
 struct _PDCLIB_lc_messages_t * _PDCLIB_load_lc_messages( const char * path, const char * locale )
 {

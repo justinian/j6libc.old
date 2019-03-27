@@ -21,7 +21,7 @@ modules:
         includes:
             - src/include
         source:
-            - src/arch/x86_64/_PDCLIB_Exit.s
+            - src/arch/x86_64/_Exit.s
             - src/ctype/isalnum.c
             - src/ctype/isalpha.c
             - src/ctype/isblank.c
@@ -42,36 +42,36 @@ modules:
             - src/inttypes/strtoumax.c
             - src/locale/localeconv.c
             - src/locale/setlocale.c
-            - src/_PDCLIB/assert.c
-            - src/_PDCLIB/errno.c
-            - src/_PDCLIB/_PDCLIB_allocpages.c
-            - src/_PDCLIB/_PDCLIB_atomax.c
-            - src/_PDCLIB/_PDCLIB_closeall.c
-            - src/_PDCLIB/_PDCLIB_close.c
-            - src/_PDCLIB/_PDCLIB_digits.c
-            - src/_PDCLIB/_PDCLIB_filemode.c
-            - src/_PDCLIB/_PDCLIB_fillbuffer.c
-            - src/_PDCLIB/_PDCLIB_flushbuffer.c
-            - src/_PDCLIB/_PDCLIB_is_leap.c
-            - src/_PDCLIB/_PDCLIB_load_lc_collate.c
-            - src/_PDCLIB/_PDCLIB_load_lc_ctype.c
-            - src/_PDCLIB/_PDCLIB_load_lc_messages.c
-            - src/_PDCLIB/_PDCLIB_load_lc_monetary.c
-            - src/_PDCLIB/_PDCLIB_load_lc_numeric.c
-            - src/_PDCLIB/_PDCLIB_load_lc_time.c
-            - src/_PDCLIB/_PDCLIB_load_lines.c
-            - src/_PDCLIB/_PDCLIB_open.c
-            - src/_PDCLIB/_PDCLIB_prepread.c
-            - src/_PDCLIB/_PDCLIB_prepwrite.c
-            - src/_PDCLIB/_PDCLIB_print.c
-            - src/_PDCLIB/_PDCLIB_rename.c
-            - src/_PDCLIB/_PDCLIB_scan.c
-            - src/_PDCLIB/_PDCLIB_seed.c
-            - src/_PDCLIB/_PDCLIB_seek.c
-            - src/_PDCLIB/_PDCLIB_stdinit.c
-            - src/_PDCLIB/_PDCLIB_strtox_main.c
-            - src/_PDCLIB/_PDCLIB_strtox_prelim.c
-            - src/_PDCLIB/sbrk.c
+            - src/poplibc/assert.c
+            - src/poplibc/errno.c
+            - src/poplibc/allocpages.c
+            - src/poplibc/atomax.c
+            - src/poplibc/closeall.c
+            - src/poplibc/close.c
+            - src/poplibc/digits.c
+            - src/poplibc/filemode.c
+            - src/poplibc/fillbuffer.c
+            - src/poplibc/flushbuffer.c
+            - src/poplibc/is_leap.c
+            - src/poplibc/load_lc_collate.c
+            - src/poplibc/load_lc_ctype.c
+            - src/poplibc/load_lc_messages.c
+            - src/poplibc/load_lc_monetary.c
+            - src/poplibc/load_lc_numeric.c
+            - src/poplibc/load_lc_time.c
+            - src/poplibc/load_lines.c
+            - src/poplibc/open.c
+            - src/poplibc/prepread.c
+            - src/poplibc/prepwrite.c
+            - src/poplibc/print.c
+            - src/poplibc/rename.c
+            - src/poplibc/scan.c
+            - src/poplibc/seed.c
+            - src/poplibc/seek.c
+            - src/poplibc/stdinit.c
+            - src/poplibc/strtox_main.c
+            - src/poplibc/strtox_prelim.c
+            - src/poplibc/sbrk.c
             - src/signal/raise.c
             - src/signal/signal.c
             - src/stdio/clearerr.c

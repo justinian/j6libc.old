@@ -48,7 +48,7 @@ char * setlocale( int category, const char * locale )
     /* Path to locale data files - _PDCLIB_LOCALE_PATH unless overruled
        by the environment variable whose name is defined by preprocessor
        symbol _PDCLIB_LOCALE_PATH_ENV (defaulting to PDCLIB_I18N).
-       Both of these definitions are set in _PDCLIB_config.h.
+       Both of these definitions are set in config.h.
     */
     const char * path = _PDCLIB_LOCALE_PATH;
 

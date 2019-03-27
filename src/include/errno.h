@@ -5,7 +5,7 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#include "pdclib/_PDCLIB_int.h"
+#include "poplibc/int.h"
 
 #define errno (*_PDCLIB_errno_func())
 

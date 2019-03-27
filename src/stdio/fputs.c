@@ -5,7 +5,7 @@
 */
 
 #include <stdio.h>
-#include "pdclib/_PDCLIB_glue.h"
+#include "poplibc/glue.h"
 
 int fputs( const char * restrict s, struct _PDCLIB_file_t * restrict stream )
 {

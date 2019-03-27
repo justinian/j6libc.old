@@ -4,7 +4,7 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#include "pdclib/_PDCLIB_int.h"
+#include "poplibc/int.h"
 
 const char _PDCLIB_digits[] = "0123456789abcdefghijklmnopqrstuvwxyz";
 

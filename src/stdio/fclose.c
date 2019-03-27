@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "pdclib/_PDCLIB_glue.h"
+#include "poplibc/glue.h"
 
 extern struct _PDCLIB_file_t * _PDCLIB_filelist;
 
@@ -60,7 +60,7 @@ int fclose( struct _PDCLIB_file_t * stream )
         current = current->next;
     }
     /* See the comments on implementation-defined errno values in
-       <_PDCLIB_config.h>.
+       <config.h>.
     */
     _PDCLIB_errno = _PDCLIB_ERROR;
     return -1;

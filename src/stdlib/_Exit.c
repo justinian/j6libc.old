@@ -6,7 +6,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "pdclib/_PDCLIB_glue.h"
+#include "poplibc/glue.h"
 
 void _Exit( int status )
 {

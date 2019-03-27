@@ -8,7 +8,7 @@
 
 #ifndef REGTEST
 
-#include "pdclib/_PDCLIB_glue.h"
+#include "poplibc/glue.h"
 
 #include <inttypes.h>
 #include <stdlib.h>

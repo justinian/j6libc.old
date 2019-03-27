@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#include "pdclib/_PDCLIB_aux.h"
+#include "poplibc/aux.h"
 
 void _PDCLIB_assert( const char * const message1, const char * const function, const char * const message2 )
 {

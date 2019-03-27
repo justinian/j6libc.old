@@ -1,21 +1,20 @@
-/* _PDCLIB_allocpages( int const )
+/* _PDCLIB_close( _PDCLIB_fd_t )
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-/* This is an example implementation of _PDCLIB_allocpages() fit for use with
-   POSIX kernels.
+/* This is an example implementation of _PDCLIB_close() fit for use with POSIX
+   kernels.
 */
-
 
 #ifndef REGTEST
 
-#include "pdclib/_PDCLIB_glue.h"
+#include "poplibc/glue.h"
 
-void * _PDCLIB_allocpages( int const n )
+int _PDCLIB_close( int fd )
 {
-	return 0;
+    return -1;
 }
 
 #endif
@@ -26,6 +25,7 @@ void * _PDCLIB_allocpages( int const n )
 
 int main( void )
 {
+    /* No testdriver; tested in driver for _PDCLIB_open(). */
     return TEST_RESULTS;
 }
 

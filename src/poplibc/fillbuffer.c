@@ -1,10 +1,10 @@
-/* _PDCLIB_flushbuffer( struct _PDCLIB_file_t * )
+/* _PDCLIB_fillbuffer( struct _PDCLIB_file_t * )
 
    This file is part of the Public Domain C Library (PDCLib).
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-/* This is an example implementation of _PDCLIB_flushbuffer() fit for
+/* This is an example implementation of _PDCLIB_fillbuffer() fit for
    use with POSIX kernels.
 */
 
@@ -12,13 +12,13 @@
 
 #ifndef REGTEST
 
-#include "pdclib/_PDCLIB_glue.h"
+#include "poplibc/glue.h"
 
-int _PDCLIB_flushbuffer( struct _PDCLIB_file_t * stream )
+int _PDCLIB_fillbuffer( struct _PDCLIB_file_t * stream )
 {
-    _PDCLIB_errno = _PDCLIB_ERROR;
-    stream->status |= _PDCLIB_ERRORFLAG;
-    return EOF;
+	_PDCLIB_errno = _PDCLIB_ERROR;
+	stream->status |= _PDCLIB_ERRORFLAG;
+	return EOF;
 }
 
 #endif
