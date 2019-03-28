@@ -9,9 +9,6 @@
  */
 
 #include <stdio.h>
-
-#ifndef REGTEST
-
 #include "poplibc/glue.h"
 
 int64_t _PDCLIB_seek( struct _PDCLIB_file_t * stream, int64_t offset, int whence )
@@ -19,17 +16,3 @@ int64_t _PDCLIB_seek( struct _PDCLIB_file_t * stream, int64_t offset, int whence
 	_PDCLIB_errno = _PDCLIB_ERROR;
     return EOF;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    /* Testing covered by ftell.c */
-    return TEST_RESULTS;
-}
-
-#endif

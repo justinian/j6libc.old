@@ -5,26 +5,9 @@
 */
 
 #include <time.h>
-
-#ifndef REGTEST
-
 /* See comments in time.h on the semantics of time_t. */
 
 time_t time( time_t * timer )
 {
     return -1;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    TESTCASE( NO_TESTDRIVER );
-    return TEST_RESULTS;
-}
-
-#endif

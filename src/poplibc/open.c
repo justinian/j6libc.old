@@ -8,8 +8,6 @@
    kernels.
 */
 
-#ifndef REGTEST
-
 #include "poplibc/glue.h"
 
 int _PDCLIB_open( const char * const filename, unsigned int mode )
@@ -17,19 +15,3 @@ int _PDCLIB_open( const char * const filename, unsigned int mode )
 	_PDCLIB_errno = _PDCLIB_ERROR;
     return -1;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-#include <stdlib.h>
-#include <string.h>
-
-int main( void )
-{
-    return TEST_RESULTS;
-}
-
-#endif

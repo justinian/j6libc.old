@@ -8,9 +8,6 @@
 */
 
 #include <stdio.h>
-
-#ifndef REGTEST
-
 #include <string.h>
 
 extern struct _PDCLIB_file_t * _PDCLIB_filelist;
@@ -30,17 +27,3 @@ int remove( const char * pathname )
 	_PDCLIB_errno = _PDCLIB_ERROR;
     return -1;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    /* Testing covered by ftell.c (and several others) */
-    return TEST_RESULTS;
-}
-
-#endif

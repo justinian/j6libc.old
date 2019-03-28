@@ -5,9 +5,6 @@
 */
 
 #include <signal.h>
-
-#ifndef REGTEST
-
 #include <stdlib.h>
 
 void (*_PDCLIB_sigabrt)( int ) = SIG_DFL;
@@ -59,17 +56,3 @@ void (*signal( int sig, void (*func)( int ) ) )( int )
     }
     return oldhandler;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    /* Testing covered by raise.c */
-    return TEST_RESULTS;
-}
-
-#endif

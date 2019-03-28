@@ -9,9 +9,6 @@
  */
 
 #include <stdio.h>
-
-#ifndef REGTEST
-
 #include "poplibc/glue.h"
 
 int _PDCLIB_rename( const char * old, const char * new )
@@ -19,17 +16,3 @@ int _PDCLIB_rename( const char * old, const char * new )
 	_PDCLIB_errno = _PDCLIB_ERROR;
 	return EOF;
 }
-
-#endif
-
-#ifdef TEST
-#include "_PDCLIB_test.h"
-
-#include <stdlib.h>
-
-int main( void )
-{
-    return TEST_RESULTS;
-}
-
-#endif

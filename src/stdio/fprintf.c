@@ -7,10 +7,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-#ifdef TESTING
-#define fprintf poplibc_fprintf
-#endif
-
 int fprintf( struct _PDCLIB_file_t * restrict stream, const char * restrict format, ... )
 {
     int rc;
@@ -20,7 +16,3 @@ int fprintf( struct _PDCLIB_file_t * restrict stream, const char * restrict form
     va_end( ap );
     return rc;
 }
-
-#ifdef TESTING
-#undef fprintf
-#endif

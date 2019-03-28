@@ -9,9 +9,6 @@
 */
 
 #include <stdio.h>
-
-#ifndef REGTEST
-
 #include "poplibc/glue.h"
 
 int _PDCLIB_fillbuffer( struct _PDCLIB_file_t * stream )
@@ -20,17 +17,3 @@ int _PDCLIB_fillbuffer( struct _PDCLIB_file_t * stream )
 	stream->status |= _PDCLIB_ERRORFLAG;
 	return EOF;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    /* Testing covered by ftell.c */
-    return TEST_RESULTS;
-}
-
-#endif

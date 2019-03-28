@@ -8,25 +8,9 @@
    kernels.
 */
 
-#ifndef REGTEST
-
 #include "poplibc/glue.h"
 
 int _PDCLIB_close( int fd )
 {
     return -1;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    /* No testdriver; tested in driver for _PDCLIB_open(). */
-    return TEST_RESULTS;
-}
-
-#endif

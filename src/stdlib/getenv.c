@@ -7,8 +7,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-#ifndef REGTEST
-
 char **environ __attribute__ ((weak));
 
 extern char **environ;
@@ -27,18 +25,3 @@ char * getenv( const char * name )
     }
     return NULL;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    TESTCASE( strcmp( getenv( "SHELL" ), "/bin/bash" ) == 0 );
-    /* TESTCASE( strcmp( getenv( "SHELL" ), "/bin/sh" ) == 0 ); */
-    return TEST_RESULTS;
-}
-
-#endif

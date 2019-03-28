@@ -92,6 +92,12 @@ START_TEST( div )
 }
 END_TEST
 
+START_TEST( getenv )
+{
+    TESTCASE( strcmp( getenv( "SHELL" ), "/bin/bash" ) == 0 );
+}
+END_TEST
+
 START_TEST( labs )
 {
     TESTCASE( labs( 0 ) == 0 );
@@ -467,6 +473,25 @@ START_TEST( strtoull )
 END_TEST
 
 
+#define SYSTEM_MESSAGE "SUCCESS testing system()"
+#define SYSTEM_COMMAND "echo '" SYSTEM_MESSAGE "'"
+
+START_TEST( system )
+{
+    FILE * fh;
+    char buffer[25];
+    buffer[24] = 'x';
+    TESTCASE( ( fh = freopen( testfile, "wb+", stdout ) ) != NULL );
+    TESTCASE( system( SYSTEM_COMMAND ) );
+    rewind( fh );
+    TESTCASE( fread( buffer, 1, 24, fh ) == 24 );
+    TESTCASE( memcmp( buffer, SYSTEM_MESSAGE, 24 ) == 0 );
+    TESTCASE( buffer[24] == 'x' );
+    TESTCASE( fclose( fh ) == 0 );
+    TESTCASE( remove( testfile ) == 0 );
+}
+END_TEST
+
 START_SUITE( stdlib )
 {
 	RUN_TEST( _Exit );
@@ -475,6 +500,7 @@ START_SUITE( stdlib )
 	RUN_TEST( atexit );
 	RUN_TEST( bsearch );
 	RUN_TEST( div );
+	RUN_TEST( getenv );
 	RUN_TEST( labs );
 	RUN_TEST( ldiv );
 	RUN_TEST( llabs );
@@ -484,5 +510,6 @@ START_SUITE( stdlib )
 	RUN_TEST( strtoll );
 	RUN_TEST( strtoul );
 	RUN_TEST( strtoull );
+	RUN_TEST( system );
 }
 END_SUITE

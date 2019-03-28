@@ -9,15 +9,9 @@
    of operating systems, including POSIX compliant ones.
 */
 
-#ifdef TESTING
-#define stderr poplibc_stderr
-#endif
-
 #include <stdio.h>
 #include <locale.h>
 #include <limits.h>
-
-#ifndef REGTEST
 
 /* In a POSIX system, stdin / stdout / stderr are equivalent to the (int) file
    descriptors 0, 1, and 2 respectively.
@@ -416,19 +410,3 @@ struct _PDCLIB_lc_time_t _PDCLIB_lc_time = {
         (char *)"PM"
     }
 };
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    /* Testing covered by several other testdrivers using stdin / stdout /
-       stderr.
-    */
-    return TEST_RESULTS;
-}
-
-#endif

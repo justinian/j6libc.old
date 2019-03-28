@@ -8,25 +8,9 @@
    POSIX kernels.
 */
 
-
-#ifndef REGTEST
-
 #include "poplibc/glue.h"
 
 void * _PDCLIB_allocpages( int const n )
 {
 	return 0;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    return TEST_RESULTS;
-}
-
-#endif

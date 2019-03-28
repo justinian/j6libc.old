@@ -19,7 +19,7 @@
 /* A system call that terminates the calling process, returning a given status
    to the environment.
 */
-void _PDCLIB_Exit( int status ) _PDCLIB_NORETURN;
+_Noreturn void _PDCLIB_Exit( int status );
 
 /* A system call that adds n pages of memory to the process heap (if n is
    positive), or releases n pages from the process heap (if n is negative).

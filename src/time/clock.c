@@ -6,23 +6,7 @@
 
 #include <time.h>
 
-#ifndef REGTEST
-
 clock_t clock( void )
 {
     return -1;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-int main( void )
-{
-    TESTCASE( NO_TESTDRIVER );
-    return TEST_RESULTS;
-}
-
-#endif

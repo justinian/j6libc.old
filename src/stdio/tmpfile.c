@@ -5,9 +5,6 @@
 */
 
 #include <stdio.h>
-
-#ifndef REGTEST
-
 #include "poplibc/glue.h"
 
 #include <inttypes.h>
@@ -23,18 +20,3 @@ struct _PDCLIB_file_t * tmpfile( void )
 {
 	return NULL;
 }
-
-#endif
-
-#ifdef TEST
-
-#include "_PDCLIB_test.h"
-
-#include <string.h>
-
-int main( void )
-{
-    return TEST_RESULTS;
-}
-
-#endif
