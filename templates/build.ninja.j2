@@ -1,128 +1,123 @@
-ninja_required_version = 1.3
-builddir = {{ buildroot }}
-srcroot = {{ srcroot }}
-modulefile = {{ modulefile }}
+{% extends "build.base.j2" %}
 
-warnflags = $
-    -Wformat=2 $
-    -Winit-self $
-    -Wfloat-equal $
-    -Winline $
-    -Wmissing-format-attribute $
-    -Wmissing-include-dirs $
-    -Wswitch $
-    -Wundef $
-    -Wdisabled-optimization $
-    -Wpointer-arith $
-    -Wno-attributes $
-    -Wno-sign-compare $
-    -Wno-multichar $
-    -Wno-div-by-zero $
-    -Wno-endif-labels $
-    -Wno-pragmas $
-    -Wno-format-extra-args $
-    -Wno-unused-result $
-    -Wno-deprecated-declarations $
-    -Wno-unused-function $
-    -Werror
-
-ccflags = $
+{% block variables %}
+{{ super() }}
+ccflags = $ccflags $
     -I${srcroot}/src/include $
-    -I${srcroot}/src/include/x86_64 $
-    -DVERSION_MAJOR={{ version.major }} $
-    -DVERSION_MINOR={{ version.minor }} $
-    -DVERSION_PATCH={{ version.patch }} $
-    -DVERSION_GITSHA=0x{% if version.dirty %}1{% else %}0{% endif %}{{ version.sha }} $
-    -DGIT_VERSION=\"{{ version.major }}.{{ version.minor }}.{{ version.patch }}-{{ version.sha }}\" $
-    -DGIT_VERSION_WIDE=L\"{{ version.major }}.{{ version.minor }}.{{ version.patch }}-{{ version.sha }}\" $
-    $warnflags
+    -I${srcroot}/src/include/x86_64
+{% endblock %}
 
-asflags = $
-    -DVERSION_MAJOR={{ version.major }} $
-    -DVERSION_MINOR={{ version.minor }} $
-    -DVERSION_PATCH={{ version.patch }} $
-    -DVERSION_GITSHA=0x{% if version.dirty %}1{% else %}0{% endif %}{{ version.sha }}
+{% block extra %}
 
-cflags = -std=c11
-cxxflags = -std=c++14
-libs =
+build ${prefix}/include/ctype.h : cp ${srcroot}/src/include/ctype.h
+    name = ${srcroot}/src/include/ctype.h
+build ${prefix}/include/stddef.h : cp ${srcroot}/src/include/stddef.h
+    name = ${srcroot}/src/include/stddef.h
+build ${prefix}/include/stdint.h : cp ${srcroot}/src/include/stdint.h
+    name = ${srcroot}/src/include/stdint.h
+build ${prefix}/include/stdarg.h : cp ${srcroot}/src/include/stdarg.h
+    name = ${srcroot}/src/include/stdarg.h
+build ${prefix}/include/poplibc/size_t.h : cp ${srcroot}/src/include/poplibc/size_t.h
+    name = ${srcroot}/src/include/poplibc/size_t.h
+build ${prefix}/include/poplibc/wchar_t.h : cp ${srcroot}/src/include/poplibc/wchar_t.h
+    name = ${srcroot}/src/include/poplibc/wchar_t.h
+build ${prefix}/include/poplibc/int.h : cp ${srcroot}/src/include/poplibc/int.h
+    name = ${srcroot}/src/include/poplibc/int.h
+build ${prefix}/include/poplibc/wint_t.h : cp ${srcroot}/src/include/poplibc/wint_t.h
+    name = ${srcroot}/src/include/poplibc/wint_t.h
+build ${prefix}/include/poplibc/aux.h : cp ${srcroot}/src/include/poplibc/aux.h
+    name = ${srcroot}/src/include/poplibc/aux.h
+build ${prefix}/include/poplibc/max_align_t.h : cp ${srcroot}/src/include/poplibc/max_align_t.h
+    name = ${srcroot}/src/include/poplibc/max_align_t.h
+build ${prefix}/include/poplibc/null.h : cp ${srcroot}/src/include/poplibc/null.h
+    name = ${srcroot}/src/include/poplibc/null.h
+build ${prefix}/include/poplibc/cpp.h : cp ${srcroot}/src/include/poplibc/cpp.h
+    name = ${srcroot}/src/include/poplibc/cpp.h
+build ${prefix}/include/poplibc/int_widths.h : cp ${srcroot}/src/include/poplibc/int_widths.h
+    name = ${srcroot}/src/include/poplibc/int_widths.h
+build ${prefix}/include/poplibc/config.h : cp ${srcroot}/src/include/poplibc/config.h
+    name = ${srcroot}/src/include/poplibc/config.h
+build ${prefix}/include/poplibc/glue.h : cp ${srcroot}/src/include/poplibc/glue.h
+    name = ${srcroot}/src/include/poplibc/glue.h
+build ${prefix}/include/poplibc/sig_atomic_t.h : cp ${srcroot}/src/include/poplibc/sig_atomic_t.h
+    name = ${srcroot}/src/include/poplibc/sig_atomic_t.h
+build ${prefix}/include/poplibc/wctype_t.h : cp ${srcroot}/src/include/poplibc/wctype_t.h
+    name = ${srcroot}/src/include/poplibc/wctype_t.h
+build ${prefix}/include/wctype.h : cp ${srcroot}/src/include/wctype.h
+    name = ${srcroot}/src/include/wctype.h
+build ${prefix}/include/stdlib.h : cp ${srcroot}/src/include/stdlib.h
+    name = ${srcroot}/src/include/stdlib.h
+build ${prefix}/include/stdnoreturn.h : cp ${srcroot}/src/include/stdnoreturn.h
+    name = ${srcroot}/src/include/stdnoreturn.h
+build ${prefix}/include/wchar.h : cp ${srcroot}/src/include/wchar.h
+    name = ${srcroot}/src/include/wchar.h
+build ${prefix}/include/signal.h : cp ${srcroot}/src/include/signal.h
+    name = ${srcroot}/src/include/signal.h
+build ${prefix}/include/inttypes.h : cp ${srcroot}/src/include/inttypes.h
+    name = ${srcroot}/src/include/inttypes.h
+build ${prefix}/include/locale.h : cp ${srcroot}/src/include/locale.h
+    name = ${srcroot}/src/include/locale.h
+build ${prefix}/include/assert.h : cp ${srcroot}/src/include/assert.h
+    name = ${srcroot}/src/include/assert.h
+build ${prefix}/include/stdalign.h : cp ${srcroot}/src/include/stdalign.h
+    name = ${srcroot}/src/include/stdalign.h
+build ${prefix}/include/iso646.h : cp ${srcroot}/src/include/iso646.h
+    name = ${srcroot}/src/include/iso646.h
+build ${prefix}/include/float.h : cp ${srcroot}/src/include/float.h
+    name = ${srcroot}/src/include/float.h
+build ${prefix}/include/stdbool.h : cp ${srcroot}/src/include/stdbool.h
+    name = ${srcroot}/src/include/stdbool.h
+build ${prefix}/include/string.h : cp ${srcroot}/src/include/string.h
+    name = ${srcroot}/src/include/string.h
+build ${prefix}/include/time.h : cp ${srcroot}/src/include/time.h
+    name = ${srcroot}/src/include/time.h
+build ${prefix}/include/stdio.h : cp ${srcroot}/src/include/stdio.h
+    name = ${srcroot}/src/include/stdio.h
+build ${prefix}/include/errno.h : cp ${srcroot}/src/include/errno.h
+    name = ${srcroot}/src/include/errno.h
+build ${prefix}/include/limits.h : cp ${srcroot}/src/include/limits.h
+    name = ${srcroot}/src/include/limits.h
+build ${prefix}/lib/libc.a : cp ${builddir}/host/libc.a
+    name = ${builddir}/host/libc.a
 
-rule cc
-    deps = gcc
-    depfile = $out.d
-    description = Compiling $name
-    command = $cc -MMD -MF $out.d $ccflags $cflags -o $out -c $in
+build install : phony | $
+    ${prefix}/include/ctype.h $
+    ${prefix}/include/stddef.h $
+    ${prefix}/include/stdint.h $
+    ${prefix}/include/stdarg.h $
+    ${prefix}/include/poplibc/size_t.h $
+    ${prefix}/include/poplibc/wchar_t.h $
+    ${prefix}/include/poplibc/int.h $
+    ${prefix}/include/poplibc/wint_t.h $
+    ${prefix}/include/poplibc/aux.h $
+    ${prefix}/include/poplibc/max_align_t.h $
+    ${prefix}/include/poplibc/null.h $
+    ${prefix}/include/poplibc/cpp.h $
+    ${prefix}/include/poplibc/int_widths.h $
+    ${prefix}/include/poplibc/config.h $
+    ${prefix}/include/poplibc/glue.h $
+    ${prefix}/include/poplibc/sig_atomic_t.h $
+    ${prefix}/include/poplibc/wctype_t.h $
+    ${prefix}/include/wctype.h $
+    ${prefix}/include/stdlib.h $
+    ${prefix}/include/stdnoreturn.h $
+    ${prefix}/include/wchar.h $
+    ${prefix}/include/signal.h $
+    ${prefix}/include/inttypes.h $
+    ${prefix}/include/locale.h $
+    ${prefix}/include/assert.h $
+    ${prefix}/include/stdalign.h $
+    ${prefix}/include/iso646.h $
+    ${prefix}/include/float.h $
+    ${prefix}/include/stdbool.h $
+    ${prefix}/include/string.h $
+    ${prefix}/include/time.h $
+    ${prefix}/include/stdio.h $
+    ${prefix}/include/errno.h $
+    ${prefix}/include/limits.h $
+    ${prefix}/lib/libc.a
 
-rule dump_cc_defs
-    description = Dumping CC defines for $target
-    command = echo "" | $cc $ccflags $cflags -dM -E - > $out
-
-rule dump_cc_run
-    description = Dumping CC arguments for $target
-    command = $
-        echo "#!/bin/bash" > $out; $
-        echo '$cc $ccflags $cflags $$*' > $out; $
-        chmod a+x $out
-
-rule cxx
-    deps = gcc
-    depfile = $out.d
-    description = Compiling $name
-    command = $cxx -MMD -MF $out.d $cxxflags $ccflags -o $out -c $in
-
-rule dump_cxx_defs
-    description = Dumping C++ defines for $target
-    command = echo "" | $cxx -x c++ $cxxflags $ccflags -dM -E - > $out
-
-rule dump_cxx_run
-    description = Dumping C++ arguments for $target
-    command = $
-        echo "#!/bin/bash" > $out; $
-        echo '$cc $cxxflags $ccflags $$*' > $out; $
-        chmod a+x $out
-
-rule nasm
-    deps = gcc
-    depfile = $out.d
-    description = Assembling $name
-    command = $nasm -o $out -felf64 -MD $out.d $asflags $in
-
-rule exe
-    description = Linking $name
-    command = $ld $ldflags -o $out $in $libs
-
-rule lib
-    description = Archiving $name
-    command = $ar qcs $out $in
-
-rule regen
-    generator = true
-    description = Regenrating build files
-    command = {{ generator }} $builddir $modulefile
-
-rule cp
-    description = Copying $name
-    command = cp $in $out
-
-rule dump
-    description = Dumping decompiled $name
-    command = objdump -DS $in > $out
-
-
-{% for target in targets %}
-subninja {{ target }}/target.ninja
-{% endfor %}
-
-build $
-    {%- for buildfile in buildfiles %}
-    {{ buildfile }} $
-    {%- endfor %}
-    : regen | $
-    {%- for template in templates %}
-    {{ template }} $
-    {%- endfor %}
-    $modulefile $
-    {{ generator }}
+{% endblock %}
 
 # vim: ft=ninja et ts=4 sts=4 sw=4
 

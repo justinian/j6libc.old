@@ -1,10 +1,13 @@
 name: poplibc
 templates: templates
+vars:
+    prefix: /usr/local
 modules:
     libc:
         kind: lib
         output: libc.a
         target: host
+        default: true
         defines:
             - DISABLE_SSE
             - LACKS_UNISTD_H
