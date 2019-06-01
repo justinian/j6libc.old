@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "poplibc/glue.h"
+#include "j6libc/glue.h"
 
 #include <string.h>
 

@@ -9,7 +9,7 @@
  */
 
 #include <stdio.h>
-#include "poplibc/glue.h"
+#include "j6libc/glue.h"
 
 int _PDCLIB_rename( const char * old, const char * new )
 {

@@ -5,10 +5,10 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#include "poplibc/cpp.h"
-#include "poplibc/int.h"
-#include "poplibc/null.h"
-#include "poplibc/size_t.h"
+#include "j6libc/cpp.h"
+#include "j6libc/int.h"
+#include "j6libc/null.h"
+#include "j6libc/size_t.h"
 
 CPP_CHECK_BEGIN
 

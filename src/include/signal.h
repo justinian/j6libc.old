@@ -5,9 +5,9 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#include "poplibc/config.h"
-#include "poplibc/cpp.h"
-#include "poplibc/sig_atomic_t.h"
+#include "j6libc/config.h"
+#include "j6libc/cpp.h"
+#include "j6libc/sig_atomic_t.h"
 
 CPP_CHECK_BEGIN
 

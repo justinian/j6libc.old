@@ -8,8 +8,8 @@
 /* Helper macros for test drivers                                             */
 /* -------------------------------------------------------------------------- */
 
-#define fprintf poplibc_fprintf
-#define stderr poplibc_stderr
+#define fprintf j6libc_fprintf
+#define stderr j6libc_stderr
 #include <ctype.h>
 #include <errno.h>
 #include <inttypes.h>

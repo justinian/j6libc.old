@@ -5,7 +5,7 @@
 */
 
 #include <stdio.h>
-#include "poplibc/glue.h"
+#include "j6libc/glue.h"
 
 int fseek( struct _PDCLIB_file_t * stream, long offset, int whence )
 {

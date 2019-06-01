@@ -8,7 +8,7 @@
    POSIX kernels.
 */
 
-#include "poplibc/glue.h"
+#include "j6libc/glue.h"
 
 void * _PDCLIB_allocpages( int const n )
 {

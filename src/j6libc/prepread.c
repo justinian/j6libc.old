@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 
-#include "poplibc/glue.h"
+#include "j6libc/glue.h"
 
 int _PDCLIB_prepread( struct _PDCLIB_file_t * stream )
 {

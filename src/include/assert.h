@@ -5,8 +5,8 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#include "poplibc/aux.h"
-#include "poplibc/cpp.h"
+#include "j6libc/aux.h"
+#include "j6libc/cpp.h"
 
 CPP_CHECK_BEGIN
 

@@ -6,7 +6,7 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#include <poplibc/int_widths.h>
+#include <j6libc/int_widths.h>
 
 /* -------------------------------------------------------------------------- */
 /* Misc                                                                       */

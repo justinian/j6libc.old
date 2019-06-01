@@ -2,13 +2,13 @@
 /* Wide character functions <wchar.h>
 */
 
-#include "poplibc/cpp.h"
-#include "poplibc/int.h"
-#include "poplibc/null.h"
-#include "poplibc/size_t.h"
-#include "poplibc/wchar_t.h"
-#include "poplibc/wctype_t.h"
-#include "poplibc/wint_t.h"
+#include "j6libc/cpp.h"
+#include "j6libc/int.h"
+#include "j6libc/null.h"
+#include "j6libc/size_t.h"
+#include "j6libc/wchar_t.h"
+#include "j6libc/wctype_t.h"
+#include "j6libc/wint_t.h"
 
 #include <stdarg.h>
 #include <stdio.h>

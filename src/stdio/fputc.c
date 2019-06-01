@@ -5,7 +5,7 @@
 */
 
 #include <stdio.h>
-#include "poplibc/glue.h"
+#include "j6libc/glue.h"
 
 /* Write the value c (cast to unsigned char) to the given stream.
    Returns c if successful, EOF otherwise.

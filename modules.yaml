@@ -1,4 +1,4 @@
-name: poplibc
+name: j6libc
 templates: templates
 vars:
     prefix: /usr/local
@@ -45,36 +45,36 @@ modules:
             - src/inttypes/strtoumax.c
             - src/locale/localeconv.c
             - src/locale/setlocale.c
-            - src/poplibc/assert.c
-            - src/poplibc/errno.c
-            - src/poplibc/allocpages.c
-            - src/poplibc/atomax.c
-            - src/poplibc/closeall.c
-            - src/poplibc/close.c
-            - src/poplibc/digits.c
-            - src/poplibc/filemode.c
-            - src/poplibc/fillbuffer.c
-            - src/poplibc/flushbuffer.c
-            - src/poplibc/is_leap.c
-            - src/poplibc/load_lc_collate.c
-            - src/poplibc/load_lc_ctype.c
-            - src/poplibc/load_lc_messages.c
-            - src/poplibc/load_lc_monetary.c
-            - src/poplibc/load_lc_numeric.c
-            - src/poplibc/load_lc_time.c
-            - src/poplibc/load_lines.c
-            - src/poplibc/open.c
-            - src/poplibc/prepread.c
-            - src/poplibc/prepwrite.c
-            - src/poplibc/print.c
-            - src/poplibc/rename.c
-            - src/poplibc/scan.c
-            - src/poplibc/seed.c
-            - src/poplibc/seek.c
-            - src/poplibc/stdinit.c
-            - src/poplibc/strtox_main.c
-            - src/poplibc/strtox_prelim.c
-            - src/poplibc/sbrk.c
+            - src/j6libc/assert.c
+            - src/j6libc/errno.c
+            - src/j6libc/allocpages.c
+            - src/j6libc/atomax.c
+            - src/j6libc/closeall.c
+            - src/j6libc/close.c
+            - src/j6libc/digits.c
+            - src/j6libc/filemode.c
+            - src/j6libc/fillbuffer.c
+            - src/j6libc/flushbuffer.c
+            - src/j6libc/is_leap.c
+            - src/j6libc/load_lc_collate.c
+            - src/j6libc/load_lc_ctype.c
+            - src/j6libc/load_lc_messages.c
+            - src/j6libc/load_lc_monetary.c
+            - src/j6libc/load_lc_numeric.c
+            - src/j6libc/load_lc_time.c
+            - src/j6libc/load_lines.c
+            - src/j6libc/open.c
+            - src/j6libc/prepread.c
+            - src/j6libc/prepwrite.c
+            - src/j6libc/print.c
+            - src/j6libc/rename.c
+            - src/j6libc/scan.c
+            - src/j6libc/seed.c
+            - src/j6libc/seek.c
+            - src/j6libc/stdinit.c
+            - src/j6libc/strtox_main.c
+            - src/j6libc/strtox_prelim.c
+            - src/j6libc/sbrk.c
             - src/signal/raise.c
             - src/signal/signal.c
             - src/stdio/clearerr.c

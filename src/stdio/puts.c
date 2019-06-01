@@ -5,7 +5,7 @@
 */
 
 #include <stdio.h>
-#include "poplibc/glue.h"
+#include "j6libc/glue.h"
 
 extern char * _PDCLIB_eol;
 
