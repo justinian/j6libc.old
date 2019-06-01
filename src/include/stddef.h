@@ -5,11 +5,11 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#include "poplibc/int.h"
-#include "poplibc/null.h"
-#include "poplibc/max_align_t.h"
-#include "poplibc/size_t.h"
-#include "poplibc/wchar_t.h"
+#include "j6libc/int.h"
+#include "j6libc/null.h"
+#include "j6libc/max_align_t.h"
+#include "j6libc/size_t.h"
+#include "j6libc/wchar_t.h"
 
 typedef __PTRDIFF_TYPE__ ptrdiff_t;
 

@@ -305,7 +305,7 @@ START_TEST( perror )
     unsigned long long max = ULLONG_MAX;
     char buffer[100];
     sprintf( buffer, "%llu", max );
-    TESTCASE_REQUIRE( ( fh = freopen( testfile, "wb+", poplibc_stderr ) ) != NULL );
+    TESTCASE_REQUIRE( ( fh = freopen( testfile, "wb+", j6libc_stderr ) ) != NULL );
     TESTCASE( strtol( buffer, NULL, 10 ) == LONG_MAX );
     perror( "Test" );
     rewind( fh );

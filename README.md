@@ -1,14 +1,14 @@
-# poplibc: Popcorn's C standard library
+# j6libc: C standard library for the jsix operating system
 
-This is the C library for [popcorn][], forked from [PDCLib][], the public
+This is the C library for [jsix][], forked from [PDCLib][], the public
 domain C library by Martin Baute and Erin Shepherd.
 
-[popcorn]: https://github.com/justinian/popcorn
+[jsix]: https://github.com/justinian/jsix
 [PDCLib]: https://github.com/DevSolar/pdclib
 
 ## License
 
-In keeping with PDCLib, poplibc is distributed unter the Creative Commons CC0
+In keeping with PDCLib, j6libc is distributed unter the Creative Commons CC0
 License. See the file `COPYING.CC0` or the licence at [Creative Commons][CC0].
 
 [CC0]: https://creativecommons.org/publicdomain/zero/1.0/legalcode

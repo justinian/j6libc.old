@@ -5,7 +5,7 @@
 */
 
 #include <stdio.h>
-#include "poplibc/glue.h"
+#include "j6libc/glue.h"
 
 int fgetc( struct _PDCLIB_file_t * stream )
 {

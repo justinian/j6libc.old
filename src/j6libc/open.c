@@ -8,7 +8,7 @@
    kernels.
 */
 
-#include "poplibc/glue.h"
+#include "j6libc/glue.h"
 
 int _PDCLIB_open( const char * const filename, unsigned int mode )
 {

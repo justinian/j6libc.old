@@ -17,32 +17,32 @@ build ${prefix}/include/stdint.h : cp ${srcroot}/src/include/stdint.h
     name = ${srcroot}/src/include/stdint.h
 build ${prefix}/include/stdarg.h : cp ${srcroot}/src/include/stdarg.h
     name = ${srcroot}/src/include/stdarg.h
-build ${prefix}/include/poplibc/size_t.h : cp ${srcroot}/src/include/poplibc/size_t.h
-    name = ${srcroot}/src/include/poplibc/size_t.h
-build ${prefix}/include/poplibc/wchar_t.h : cp ${srcroot}/src/include/poplibc/wchar_t.h
-    name = ${srcroot}/src/include/poplibc/wchar_t.h
-build ${prefix}/include/poplibc/int.h : cp ${srcroot}/src/include/poplibc/int.h
-    name = ${srcroot}/src/include/poplibc/int.h
-build ${prefix}/include/poplibc/wint_t.h : cp ${srcroot}/src/include/poplibc/wint_t.h
-    name = ${srcroot}/src/include/poplibc/wint_t.h
-build ${prefix}/include/poplibc/aux.h : cp ${srcroot}/src/include/poplibc/aux.h
-    name = ${srcroot}/src/include/poplibc/aux.h
-build ${prefix}/include/poplibc/max_align_t.h : cp ${srcroot}/src/include/poplibc/max_align_t.h
-    name = ${srcroot}/src/include/poplibc/max_align_t.h
-build ${prefix}/include/poplibc/null.h : cp ${srcroot}/src/include/poplibc/null.h
-    name = ${srcroot}/src/include/poplibc/null.h
-build ${prefix}/include/poplibc/cpp.h : cp ${srcroot}/src/include/poplibc/cpp.h
-    name = ${srcroot}/src/include/poplibc/cpp.h
-build ${prefix}/include/poplibc/int_widths.h : cp ${srcroot}/src/include/poplibc/int_widths.h
-    name = ${srcroot}/src/include/poplibc/int_widths.h
-build ${prefix}/include/poplibc/config.h : cp ${srcroot}/src/include/poplibc/config.h
-    name = ${srcroot}/src/include/poplibc/config.h
-build ${prefix}/include/poplibc/glue.h : cp ${srcroot}/src/include/poplibc/glue.h
-    name = ${srcroot}/src/include/poplibc/glue.h
-build ${prefix}/include/poplibc/sig_atomic_t.h : cp ${srcroot}/src/include/poplibc/sig_atomic_t.h
-    name = ${srcroot}/src/include/poplibc/sig_atomic_t.h
-build ${prefix}/include/poplibc/wctype_t.h : cp ${srcroot}/src/include/poplibc/wctype_t.h
-    name = ${srcroot}/src/include/poplibc/wctype_t.h
+build ${prefix}/include/j6libc/size_t.h : cp ${srcroot}/src/include/j6libc/size_t.h
+    name = ${srcroot}/src/include/j6libc/size_t.h
+build ${prefix}/include/j6libc/wchar_t.h : cp ${srcroot}/src/include/j6libc/wchar_t.h
+    name = ${srcroot}/src/include/j6libc/wchar_t.h
+build ${prefix}/include/j6libc/int.h : cp ${srcroot}/src/include/j6libc/int.h
+    name = ${srcroot}/src/include/j6libc/int.h
+build ${prefix}/include/j6libc/wint_t.h : cp ${srcroot}/src/include/j6libc/wint_t.h
+    name = ${srcroot}/src/include/j6libc/wint_t.h
+build ${prefix}/include/j6libc/aux.h : cp ${srcroot}/src/include/j6libc/aux.h
+    name = ${srcroot}/src/include/j6libc/aux.h
+build ${prefix}/include/j6libc/max_align_t.h : cp ${srcroot}/src/include/j6libc/max_align_t.h
+    name = ${srcroot}/src/include/j6libc/max_align_t.h
+build ${prefix}/include/j6libc/null.h : cp ${srcroot}/src/include/j6libc/null.h
+    name = ${srcroot}/src/include/j6libc/null.h
+build ${prefix}/include/j6libc/cpp.h : cp ${srcroot}/src/include/j6libc/cpp.h
+    name = ${srcroot}/src/include/j6libc/cpp.h
+build ${prefix}/include/j6libc/int_widths.h : cp ${srcroot}/src/include/j6libc/int_widths.h
+    name = ${srcroot}/src/include/j6libc/int_widths.h
+build ${prefix}/include/j6libc/config.h : cp ${srcroot}/src/include/j6libc/config.h
+    name = ${srcroot}/src/include/j6libc/config.h
+build ${prefix}/include/j6libc/glue.h : cp ${srcroot}/src/include/j6libc/glue.h
+    name = ${srcroot}/src/include/j6libc/glue.h
+build ${prefix}/include/j6libc/sig_atomic_t.h : cp ${srcroot}/src/include/j6libc/sig_atomic_t.h
+    name = ${srcroot}/src/include/j6libc/sig_atomic_t.h
+build ${prefix}/include/j6libc/wctype_t.h : cp ${srcroot}/src/include/j6libc/wctype_t.h
+    name = ${srcroot}/src/include/j6libc/wctype_t.h
 build ${prefix}/include/wctype.h : cp ${srcroot}/src/include/wctype.h
     name = ${srcroot}/src/include/wctype.h
 build ${prefix}/include/stdlib.h : cp ${srcroot}/src/include/stdlib.h
@@ -85,19 +85,19 @@ build install : phony | $
     ${prefix}/include/stddef.h $
     ${prefix}/include/stdint.h $
     ${prefix}/include/stdarg.h $
-    ${prefix}/include/poplibc/size_t.h $
-    ${prefix}/include/poplibc/wchar_t.h $
-    ${prefix}/include/poplibc/int.h $
-    ${prefix}/include/poplibc/wint_t.h $
-    ${prefix}/include/poplibc/aux.h $
-    ${prefix}/include/poplibc/max_align_t.h $
-    ${prefix}/include/poplibc/null.h $
-    ${prefix}/include/poplibc/cpp.h $
-    ${prefix}/include/poplibc/int_widths.h $
-    ${prefix}/include/poplibc/config.h $
-    ${prefix}/include/poplibc/glue.h $
-    ${prefix}/include/poplibc/sig_atomic_t.h $
-    ${prefix}/include/poplibc/wctype_t.h $
+    ${prefix}/include/j6libc/size_t.h $
+    ${prefix}/include/j6libc/wchar_t.h $
+    ${prefix}/include/j6libc/int.h $
+    ${prefix}/include/j6libc/wint_t.h $
+    ${prefix}/include/j6libc/aux.h $
+    ${prefix}/include/j6libc/max_align_t.h $
+    ${prefix}/include/j6libc/null.h $
+    ${prefix}/include/j6libc/cpp.h $
+    ${prefix}/include/j6libc/int_widths.h $
+    ${prefix}/include/j6libc/config.h $
+    ${prefix}/include/j6libc/glue.h $
+    ${prefix}/include/j6libc/sig_atomic_t.h $
+    ${prefix}/include/j6libc/wctype_t.h $
     ${prefix}/include/wctype.h $
     ${prefix}/include/stdlib.h $
     ${prefix}/include/stdnoreturn.h $

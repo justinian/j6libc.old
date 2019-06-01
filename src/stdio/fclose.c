@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "poplibc/glue.h"
+#include "j6libc/glue.h"
 
 extern struct _PDCLIB_file_t * _PDCLIB_filelist;
 

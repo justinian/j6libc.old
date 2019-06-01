@@ -5,7 +5,7 @@
    Permission is granted to use, modify, and / or redistribute at will.
 */
 
-#include "poplibc/int.h"
+#include "j6libc/int.h"
 
 #define errno (*_PDCLIB_errno_func())
 

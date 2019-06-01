@@ -12,12 +12,12 @@
 
 #include <stdbool.h>
 
-#include "poplibc/config.h"
-#include "poplibc/cpp.h"
-#include "poplibc/aux.h"
-#include "poplibc/int_widths.h"
-#include "poplibc/size_t.h"
-#include "poplibc/wchar_t.h"
+#include "j6libc/config.h"
+#include "j6libc/cpp.h"
+#include "j6libc/aux.h"
+#include "j6libc/int_widths.h"
+#include "j6libc/size_t.h"
+#include "j6libc/wchar_t.h"
 
 CPP_CHECK_BEGIN
 

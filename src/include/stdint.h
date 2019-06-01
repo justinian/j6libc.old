@@ -7,8 +7,8 @@
 
 /* 7.18.2 Limits of specified-width integer types */
 
-#include <poplibc/int.h>
-#include <poplibc/int_widths.h>
+#include <j6libc/int.h>
+#include <j6libc/int_widths.h>
 
 #ifdef __cplusplus
 #ifndef __STDC_LIMIT_MACROS
